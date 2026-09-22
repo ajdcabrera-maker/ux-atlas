@@ -1,29 +1,18 @@
-# UX/UI Design Skills Framework
+# UX Atlas
 
-An open-source, machine-readable UX documentation suite built for human designers and AI agents. Powered by [Astro Starlight](https://starlight.astro.build/) so content stays markdown-first and RAG-friendly.
+Machine-readable UX documentation for designers and agents. Same stack and visual system as the portfolio at [aarondesign.rocks](https://aarondesign.rocks). Planned host: [atlas.aarondesign.rocks](https://atlas.aarondesign.rocks).
 
-## Sections
+## Stack
 
-| Section | Path | Purpose |
-| --- | --- | --- |
-| Foundations | `src/content/docs/foundations` | Core principles, including The UX Constitution |
-| Patterns | `src/content/docs/patterns` | Reusable interaction and layout patterns |
-| Components | `src/content/docs/components` | UI building blocks |
-| Design Ops | `src/content/docs/design-ops` | Process, governance, and delivery |
+Astro, MDX, Tailwind CSS v4, Cloudflare Workers (Wrangler static assets).
 
-## Local development
-
-```bash
-npm install
-npm run dev -- --port 4325 --host
-```
-
-Open [http://127.0.0.1:4325](http://127.0.0.1:4325).
-
-### Useful scripts
+## Scripts
 
 | Command | Description |
 | --- | --- |
-| `npm run dev` | Start the Starlight dev server |
-| `npm run build` | Build the production site to `./dist/` |
-| `npm run preview` | Preview the production build locally |
+| `npm run dev` | Local dev server |
+| `npm run build` | Static build to `./dist/` |
+| `npm run preview` | Preview the build |
+| `npm run deploy` | Build and `wrangler deploy` the `ux-atlas` worker |
+
+Contracts and tokens: `DESIGN.md`.

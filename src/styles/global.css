@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import "./tokens.css";
+
+@layer base {
+  html {
+    @apply bg-canvas text-ink antialiased;
+  }
+}
+
+@layer components {
+  .code-inline {
+    @apply rounded-md border border-line bg-canvas-elevated px-1.5 py-0.5
+      font-mono text-[0.9em] text-accent;
+  }
+
+  .docs-prose {
+    @apply prose prose-invert max-w-none
+      prose-headings:scroll-mt-24 prose-headings:font-semibold prose-headings:tracking-tight
+      prose-h2:mt-14 prose-h2:mb-4 prose-h2:text-2xl prose-h2:text-ink
+      prose-h3:mt-10 prose-h3:mb-3 prose-h3:text-xl prose-h3:text-ink
+      prose-p:text-ink-muted prose-p:leading-relaxed
+      prose-strong:text-ink prose-strong:font-semibold
+      prose-a:text-ink prose-a:underline prose-a:decoration-line
+      prose-a:underline-offset-4 hover:prose-a:decoration-ink-muted
+      prose-li:text-ink-muted prose-li:marker:text-ink-subtle
+      prose-hr:border-line;
+  }
+
+  .docs-prose :where(code):not(:where(pre *)) {
+    @apply rounded-md border border-line bg-canvas-elevated px-1.5 py-0.5
+      font-mono text-[0.875em] font-normal text-accent
+      before:content-none after:content-none;
+  }
+
+  .docs-prose pre {
+    @apply overflow-x-auto rounded-card border border-line bg-canvas-elevated
+      p-4 text-sm leading-relaxed text-ink-muted shadow-none;
+  }
+
+  .docs-prose pre code {
+    @apply border-0 bg-transparent p-0 text-inherit;
+  }
+
+  .docs-prose blockquote {
+    @apply border-l-2 border-accent-muted bg-canvas-elevated/60 py-1 pl-5 pr-4
+      not-italic text-ink-muted;
+  }
+
+  .docs-prose blockquote p {
+    @apply text-ink-muted;
+  }
+}

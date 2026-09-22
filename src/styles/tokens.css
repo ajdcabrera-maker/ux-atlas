@@ -1,0 +1,31 @@
+/* Same semantic tokens as the portfolio on aarondesign.rocks.
+   Documented in /DESIGN.md. */
+
+@theme {
+  --color-canvas: #0a0a0a;
+  --color-canvas-elevated: #171717;
+  --color-canvas-subtle: #0a0a0acc;
+
+  --color-ink: #f5f5f5;
+  --color-ink-muted: #a3a3a3;
+  --color-ink-subtle: #737373;
+
+  --color-line: #262626;
+  --color-line-strong: #404040;
+  --color-line-soft: #262626cc;
+
+  --color-accent: #6ee7b7;
+  --color-accent-muted: #34d399cc;
+
+  --color-cta: #f5f5f5;
+  --color-cta-fg: #0a0a0a;
+
+  --radius-control: 0.5rem;
+  --radius-card: 1rem;
+  --radius-pill: 9999px;
+
+  --max-width-content: 72rem;
+  --spacing-grid: 1rem;
+  --height-media: 18rem;
+  --height-media-lg: 20rem;
+}

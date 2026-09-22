@@ -1,33 +1,12 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
+import mdx from '@astrojs/mdx';
+import tailwindcss from '@tailwindcss/vite';
 
-// https://astro.build/config
+// Planned host: atlas.aarondesign.rocks (sibling worker of aarondesign.rocks).
 export default defineConfig({
-	integrations: [
-		starlight({
-			title: 'UX/UI Design Skills',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
-			sidebar: [
-				{
-					label: 'Foundations',
-					items: [
-						{ label: 'The UX Constitution', slug: 'foundations/ux-constitution' },
-					],
-				},
-				{
-					label: 'Patterns',
-					items: [{ autogenerate: { directory: 'patterns' } }],
-				},
-				{
-					label: 'Components',
-					items: [{ autogenerate: { directory: 'components' } }],
-				},
-				{
-					label: 'Design Ops',
-					items: [{ autogenerate: { directory: 'design-ops' } }],
-				},
-			],
-		}),
-	],
+  site: 'https://atlas.aarondesign.rocks',
+  integrations: [mdx()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

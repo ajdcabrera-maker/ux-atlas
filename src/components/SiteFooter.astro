@@ -1,0 +1,40 @@
+---
+import { site } from '../lib/site';
+import Container from '../ds/Container.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line">
+  <Container
+    class="flex flex-col gap-8 py-12 sm:flex-row sm:items-end sm:justify-between"
+  >
+    <div class="space-y-3">
+      <p class="text-sm font-medium text-ink">{site.name}</p>
+      <p class="max-w-sm text-sm leading-relaxed text-ink-subtle">
+        Machine-readable UX rules for designers and agents. Same system as the
+        portfolio.
+      </p>
+      <p class="text-xs text-ink-subtle">© {year} Aaron Cabrera</p>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-4 text-sm">
+      {
+        site.nav.map((link) => (
+          <a
+            href={link.href}
+            class="text-ink-muted transition-colors hover:text-ink"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href={site.portfolioUrl}
+        class="text-ink transition-colors hover:text-white"
+      >
+        aarondesign.rocks →
+      </a>
+    </div>
+  </Container>
+</footer>
