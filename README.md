@@ -1,6 +1,6 @@
 # UX Atlas
 
-Machine-readable UX documentation for designers and agents. Same stack and visual system as the portfolio at [aarondesign.rocks](https://aarondesign.rocks). Planned host: [atlas.aarondesign.rocks](https://atlas.aarondesign.rocks).
+An open-source library of foundational AI skills for UX design. Live at [atlas.aarondesign.rocks](https://atlas.aarondesign.rocks).
 
 ## Stack
 

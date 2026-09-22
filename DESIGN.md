@@ -20,7 +20,7 @@ The portfolio repo remains the reference for product UI on aarondesign.rocks. Do
 
 ## Product mood
 
-**Terminal / phosphor on canvas**, same as the portfolio. Dark page, inverse CTA back to the portfolio, emerald only for code. No purple glow, no cream editorial, no card-heavy dashboards.
+**Terminal / phosphor on canvas**. Dark page, emerald only for code. No purple glow, no cream editorial, no card-heavy dashboards.
 
 ---
 
@@ -68,7 +68,6 @@ Defined in `src/styles/tokens.css` via Tailwind v4 `@theme`. Same roles and hex 
 
 - Do not introduce new hex values in pages. Extend `tokens.css` and this table first, and only if the portfolio tokens change too.
 - Emerald/`accent` is for code and system signals. Doc prose uses `.docs-prose` so inline code picks up accent.
-- The header CTA is the inverse **Portfolio** link (`cta` / `cta-fg`). It leaves this host for aarondesign.rocks.
 - Pages use semantic tokens. No raw `neutral-*` or `emerald-*` utilities in `src/`.
 
 ---
@@ -83,7 +82,7 @@ Defined in `src/styles/tokens.css` via Tailwind v4 `@theme`. Same roles and hex 
 
 Chrome: `SiteHeader`, `SiteFooter`, `SiteLayout`, `BaseLayout`.
 
-Constants: `src/lib/site.ts` — `name`, `url`, `portfolioUrl`, `nav`.
+Constants: `src/lib/site.ts` — `name`, `url`, `nav`.
 
 ---
 
