@@ -17,15 +17,15 @@ export default defineConfig({
 				},
 				{
 					label: 'Patterns',
-					autogenerate: { directory: 'patterns' },
+					items: [{ autogenerate: { directory: 'patterns' } }],
 				},
 				{
 					label: 'Components',
-					autogenerate: { directory: 'components' },
+					items: [{ autogenerate: { directory: 'components' } }],
 				},
 				{
 					label: 'Design Ops',
-					autogenerate: { directory: 'design-ops' },
+					items: [{ autogenerate: { directory: 'design-ops' } }],
 				},
 			],
 		}),
