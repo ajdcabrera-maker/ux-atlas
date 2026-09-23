@@ -1,0 +1,22 @@
+{
+  "name": "ux-atlas-site",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^8.0.1",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.1.8",
+    "astro": "^7.2.10",
+    "design-tokens": "github:ajdcabrera-maker/design-tokens",
+    "tailwindcss": "^4.1.8"
+  },
+  "devDependencies": {
+    "wrangler": "^4.34.0"
+  }
+}

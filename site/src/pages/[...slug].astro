@@ -1,0 +1,42 @@
+---
+import { getCollection, render } from 'astro:content';
+import { site } from '../lib/site';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Container from '../ds/Container.astro';
+import Eyebrow from '../ds/Eyebrow.astro';
+import SkillNav from '../components/SkillNav.astro';
+import { skillMeta } from '../lib/skill-catalog';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs');
+  return docs.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const meta = skillMeta(entry.data.name);
+const section = meta.section.replace(/-/g, ' ');
+---
+
+<SiteLayout title={`${meta.title} · ${site.name}`} description={entry.data.description}>
+  <div class="border-b border-line">
+    <Container class="grid gap-12 py-16 md:grid-cols-[16rem_1fr] md:py-20">
+      <SkillNav current={entry.id} />
+      <article>
+        <Eyebrow>{section}</Eyebrow>
+        <h1 class="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-ink sm:text-5xl">
+          {meta.title}
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted sm:text-xl">
+          {entry.data.description}
+        </p>
+        <div class="docs-prose mt-12 max-w-3xl">
+          <Content />
+        </div>
+      </article>
+    </Container>
+  </div>
+</SiteLayout>

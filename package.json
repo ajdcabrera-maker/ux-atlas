@@ -1,22 +1,19 @@
 {
   "name": "ux-atlas",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "private": false,
+  "description": "UX skills for agents. Each skill is skills/<name>/SKILL.md.",
+  "files": [
+    "skills"
+  ],
+  "exports": {
+    "./skills/*": "./skills/*"
+  },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "deploy": "npm run build && wrangler deploy"
-  },
-  "dependencies": {
-    "@astrojs/mdx": "^8.0.1",
-    "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.1.8",
-    "astro": "^7.2.10",
-    "design-tokens": "github:ajdcabrera-maker/design-tokens",
-    "tailwindcss": "^4.1.8"
-  },
-  "devDependencies": {
-    "wrangler": "^4.34.0"
+    "dev": "npm --prefix site run dev",
+    "build": "npm --prefix site run build",
+    "preview": "npm --prefix site run preview",
+    "deploy": "npm --prefix site run deploy"
   }
 }

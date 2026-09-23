@@ -1,0 +1,23 @@
+# Skill selection
+
+Skills live in `skills/**/SKILL.md`. Each file’s `name` and `description` are the disclosure layer. The body is the rule set.
+
+## Always on
+
+For any UI, UX, accessibility, or component work, apply this constitution. It supersedes a narrower skill when they conflict. The full text, including edge cases, is `skills/ux-constitution/SKILL.md`. Read that body when the task needs a threshold, exception, or example this summary does not settle.
+
+1. **Interaction:** Provide immediate visual feedback (loading, success, error). Prevent errors with constrained inputs. Always provide a non-destructive exit (Cancel or Undo).
+2. **Psychology:** Minimize cognitive load. Break complex forms into steps. Primary actions are at least 44×44px and easy to reach.
+3. **Perception:** Group related elements with spacing and surfaces. Interactive elements must look distinct from static ones.
+4. **Inclusivity:** WCAG 2.1 AA. Semantic HTML. 4.5:1 text contrast. Do not remove `:focus-visible` without an equal replacement. Dynamic updates use `aria-live`.
+
+If a result breaks one of these, it is broken.
+
+## Task skill
+
+1. Read only the `name` and `description` frontmatter of the other `SKILL.md` files. Do not read every body up front.
+2. If one description matches the task, read that body and follow it together with the constitution above.
+3. If several match, read the most specific one.
+4. If none match, the constitution is enough. Do not load the rest of the library just in case.
+
+A new skill is `skills/<name>/SKILL.md` with `name` and `description`. Write the words that should trigger it in the description. Register its `title`, `section`, and `order` in `site/src/lib/skill-catalog.ts`.

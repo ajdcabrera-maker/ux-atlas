@@ -1,0 +1,31 @@
+---
+import { site } from '../lib/site';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Container from '../ds/Container.astro';
+import Eyebrow from '../ds/Eyebrow.astro';
+import SkillNav from '../components/SkillNav.astro';
+---
+
+<SiteLayout
+  title={site.name}
+  description="An open-source, machine-readable documentation suite. Written for people and for agents."
+>
+  <div class="border-b border-line">
+    <Container class="grid gap-12 py-16 md:grid-cols-[16rem_1fr] md:py-20">
+      <SkillNav />
+      <div>
+        <Eyebrow>Open source</Eyebrow>
+        <h1 class="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-5xl">
+          {site.name}
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted sm:text-xl">
+          An open-source, machine-readable documentation suite. Written for people and for agents.
+        </p>
+        <p class="mt-6 max-w-2xl text-sm leading-relaxed text-ink-subtle">
+          Each skill is a <span class="font-mono text-accent">SKILL.md</span> in the
+          repository. Pick one to read it.
+        </p>
+      </div>
+    </Container>
+  </div>
+</SiteLayout>

@@ -1,18 +1,27 @@
 # UX Atlas
 
-An open-source library of foundational AI skills for UX design. Live at [atlas.aarondesign.rocks](https://atlas.aarondesign.rocks).
+UX skills for agents, and a site that previews them.
 
-## Stack
+## Skills
 
-Astro, MDX, Tailwind CSS v4, Cloudflare Workers (Wrangler static assets).
+Each skill is a folder:
 
-## Scripts
+```
+skills/<name>/SKILL.md
+```
 
-| Command | Description |
-| --- | --- |
-| `npm run dev` | Local dev server |
-| `npm run build` | Static build to `./dist/` |
-| `npm run preview` | Preview the build |
-| `npm run deploy` | Build and `wrangler deploy` the `ux-atlas` worker |
+`name` and `description` in the frontmatter tell an agent when to load the file. The body is the rule set. Install this package and point a project rule at `node_modules/ux-atlas/skills/**/SKILL.md`.
 
-Contracts and tokens: `DESIGN.md`.
+```bash
+npm install github:ajdcabrera-maker/ux-atlas
+```
+
+## Site
+
+The Astro app in `site/` renders those files at [atlas.aarondesign.rocks](https://atlas.aarondesign.rocks). `site/src/lib/skill-catalog.ts` holds each skill’s title, section, and order. Section and name become the URL, so the constitution is `/foundations/ux-constitution`.
+
+```bash
+npm run dev
+npm run build
+npm run deploy
+```
