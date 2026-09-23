@@ -1,103 +1,70 @@
-# DESIGN.md — UX Atlas design contract
-
-Visual and component contract for the docs site that will live at **atlas.aarondesign.rocks**, a sibling of the portfolio at **aarondesign.rocks**.
-
-Tokens match the portfolio on purpose. If this file, `src/styles/tokens.css`, and a page disagree, fix them in one change.
-
+---
+version: alpha
+name: UX Atlas
+description: Docs site contract for atlas.aarondesign.rocks. Color, type, radius, and spacing values live in the design-tokens package and are referenced below.
+components:
+  eyebrow:
+    textColor: "{colors.ink-subtle}"
+    typography: "{typography.label-caps}"
+  surface:
+    backgroundColor: "{colors.canvas-elevated}"
+    rounded: "{rounded.card}"
+  surface-border:
+    backgroundColor: "{colors.line}"
+  surface-interactive-hover:
+    backgroundColor: "{colors.canvas-elevated}"
+  surface-interactive-hover-border:
+    backgroundColor: "{colors.line-strong}"
+  sticky-chrome:
+    backgroundColor: "{colors.canvas-subtle}"
+  code-inline:
+    backgroundColor: "{colors.canvas-elevated}"
+    textColor: "{colors.accent}"
+    rounded: "{rounded.control}"
+  divider:
+    backgroundColor: "{colors.line}"
+  container:
+    padding: 24px
 ---
 
-## Read order
+# DESIGN.md
 
-1. **`DESIGN.md`** (this file)
-2. **`src/styles/tokens.css`**
-3. **`src/ds/*`**
-4. **`src/content/docs/*`** — published rules (the UX Constitution and later sections)
-5. **`src/pages/*`** — compositions
+Docs site contract for **atlas.aarondesign.rocks**. `colors`, `typography`, `rounded`, and `spacing` are defined in the [`design-tokens`](https://github.com/ajdcabrera-maker/design-tokens) package. This file uses the same schema and references those tokens. It does not restate their values. `src/styles/tokens.css` imports `design-tokens/tokens.css`.
 
-The portfolio repo remains the reference for product UI on aarondesign.rocks. Do not invent a second palette here.
+## Overview
 
----
+**Mood:** terminal / phosphor on canvas. Dark page, emerald only for code. No purple glow, no cream editorial, no card-heavy dashboards.
 
-## Product mood
+## Colors and type
 
-**Terminal / phosphor on canvas**. Dark page, emerald only for code. No purple glow, no cream editorial, no card-heavy dashboards.
+Use the semantic utilities from the shared tokens (`bg-canvas`, `text-ink-muted`, `border-line`, `text-accent`, `bg-cta`). Accent is for code and system signals, including `.docs-prose` inline code. Do not add hex values in this repo.
 
----
+Page type uses the shared scale:
 
-## Hosting
+| Level | Token | Usage |
+|-------|--------|--------|
+| Page H1 | `typography.display` | Home and doc titles |
+| Section H2 | `typography.headline-lg` | Home sections |
+| Card title | `typography.headline-sm` | Directory cards |
+| Lead | `typography.body-lg` | Intros |
+| Body | `typography.body-sm` | Card descriptions |
 
-| | Portfolio | This site |
-|--|-----------|-----------|
-| URL | `https://aarondesign.rocks` | `https://atlas.aarondesign.rocks` |
-| Worker | `aaron-cabrera-portfolio` | `ux-atlas` |
-| Build | `astro build` → `dist/` | same |
-| Deploy | `npm run deploy` (Wrangler assets) | same |
+## Components
 
-Attach `atlas.aarondesign.rocks` to the `ux-atlas` worker in Cloudflare. Do not point this worker at the apex domain.
+Primitives live in `src/ds/`. Chrome composes them from `src/components/` and `src/layouts/`. Constants (`name`, `url`, `nav`) live in `src/lib/site.ts`.
 
-`site` in `astro.config.mjs` and `url` in `src/lib/site.ts` must stay the same hostname.
-
----
-
-## Tokens
-
-Defined in `src/styles/tokens.css` via Tailwind v4 `@theme`. Same roles and hex values as the portfolio.
-
-| Role | Token | Utility examples | Hex |
-|------|-------|------------------|-----|
-| Page background | `canvas` | `bg-canvas` | `#0a0a0a` |
-| Elevated surface | `canvas-elevated` | `bg-canvas-elevated` | `#171717` |
-| Sticky chrome | `canvas-subtle` | `bg-canvas-subtle` | `#0a0a0acc` |
-| Primary text | `ink` | `text-ink` | `#f5f5f5` |
-| Secondary / body | `ink-muted` | `text-ink-muted` | `#a3a3a3` |
-| Tertiary / meta | `ink-subtle` | `text-ink-subtle` | `#737373` |
-| Default border | `line` | `border-line` | `#262626` |
-| Hover border | `line-strong` | `border-line-strong` | `#404040` |
-| Soft border | `line-soft` | `border-line-soft` | `#262626cc` |
-| Code accent | `accent` | `text-accent` | `#6ee7b7` |
-| Accent soft | `accent-muted` | `border-accent-muted` | `#34d399cc` |
-| CTA fill | `cta` | `bg-cta` | `#f5f5f5` |
-| CTA text | `cta-fg` | `text-cta-fg` | `#0a0a0a` |
-| Control radius | `control` | `rounded-control` | `0.5rem` |
-| Card radius | `card` | `rounded-card` | `1rem` |
-| Pill radius | `pill` | `rounded-pill` | `9999px` |
-| Content width | `content` | `max-w-content` | `72rem` |
-| Grid gap | `grid` | `gap-grid` | `1rem` |
-
-### Rules
-
-- Do not introduce new hex values in pages. Extend `tokens.css` and this table first, and only if the portfolio tokens change too.
-- Emerald/`accent` is for code and system signals. Doc prose uses `.docs-prose` so inline code picks up accent.
-- Pages use semantic tokens. No raw `neutral-*` or `emerald-*` utilities in `src/`.
-
----
-
-## Library (`src/ds/`)
-
-| Primitive | File | Use |
-|-----------|------|-----|
-| `Container` | `Container.astro` | Page width + `px-6` |
+| Primitive | File | Role |
+|-----------|------|------|
+| `Container` | `Container.astro` | Section width + `px-6` |
 | `Eyebrow` | `Eyebrow.astro` | Uppercase section labels |
-| `Surface` | `Surface.astro` | Directory cards (`interactive` when the card is a link) |
+| `Surface` | `Surface.astro` | Directory cards; `interactive` when the card is a link |
 
-Chrome: `SiteHeader`, `SiteFooter`, `SiteLayout`, `BaseLayout`.
+## Do's and Don'ts
 
-Constants: `src/lib/site.ts` — `name`, `url`, `nav`.
-
----
-
-## Typography
-
-| Level | Classes | Usage |
-|-------|---------|--------|
-| Page H1 | `text-3xl sm:text-5xl font-semibold tracking-tight text-ink` | Home, doc titles |
-| Section H2 | `text-2xl sm:text-3xl font-semibold tracking-tight text-ink` | Home sections |
-| Card title | `text-lg font-semibold tracking-tight text-ink` | Directory cards |
-| Lead | `text-lg sm:text-xl text-ink-muted leading-relaxed` | Intros |
-| Body | `text-sm text-ink-muted leading-relaxed` | Card descriptions |
-| Doc body | `.docs-prose` | Markdown in `src/content/docs` |
-
----
+- Do add a new color, type size, radius, or spacing value in `design-tokens` before using it here.
+- Don't copy those values into this file or into `tokens.css`.
+- Do use semantic token utilities in pages. No raw `neutral-*` or `emerald-*`.
+- Don't use accent as a decorative wash. It is for code and system signals.
 
 ## Pages
 
@@ -107,4 +74,6 @@ Constants: `src/lib/site.ts` — `name`, `url`, `nav`.
 | `/:section/:slug` | `src/pages/[...slug].astro` | One route per content entry |
 | `/404` | `src/pages/404.astro` | Worker `not_found_handling` |
 
-Content lives in `src/content/docs/<section>/`. A new markdown file with `title` and `description` is a new page. Add a header link in `site.nav` only when it should stay in the chrome.
+Content lives in `src/content/docs/<section>/<slug>/SKILL.md`. `generateId` drops the `SKILL` segment, so `foundations/ux-constitution/SKILL.md` publishes at `/foundations/ux-constitution`. Each file needs `title` and `description`. Add a header link in `site.nav` only when it should stay in the chrome.
+
+**Hosting:** `atlas.aarondesign.rocks` on the `ux-atlas` worker. `site` in `astro.config.mjs` and `url` in `src/lib/site.ts` stay on that hostname.

@@ -13,6 +13,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.8",
     "astro": "^7.2.10",
+    "design-tokens": "github:ajdcabrera-maker/design-tokens",
     "tailwindcss": "^4.1.8"
   },
   "devDependencies": {
