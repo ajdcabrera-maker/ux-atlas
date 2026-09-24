@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { APIRoute } from 'astro';
-import { buildProjectZip } from '../../lib/project-bundle';
+import { buildProjectZip } from '../../../lib/project-bundle';
 
 export function getStaticPaths() {
   const root = path.resolve(process.cwd(), '../design-systems');

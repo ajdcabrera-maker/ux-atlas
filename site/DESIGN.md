@@ -72,7 +72,7 @@ Primitives live in `src/ds/`. Chrome composes them from `src/components/` and `s
 |-------|------|--------|
 | `/` | `src/pages/index.astro` | Intro. One line per feature. Ways to put Atlas in a project read `applyMethods` in `src/lib/site.ts`. |
 | `/download` | `src/pages/download/index.astro` | Choose one design system and download a folder for the project root. |
-| `/download/:slug` | `src/pages/download/[slug].ts` | Zip of the skills, that `DESIGN.md`, `AGENTS.md`, and `CLAUDE.md`. |
+| `/download/zip/:slug` | `src/pages/download/zip/[slug].ts` | Zip of the skills, that `DESIGN.md`, `AGENTS.md`, and `CLAUDE.md`. |
 | `/:section/:slug` | `src/pages/[...slug].astro` | One route per skill |
 | `/design-systems` | `src/pages/design-systems/index.astro` | Design system catalog |
 | `/design-systems/:slug` | `src/pages/design-systems/[slug].astro` | One compiled DESIGN.md |

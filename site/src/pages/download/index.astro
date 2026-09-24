@@ -234,7 +234,7 @@ const viewSkills = firstSkill?.href ?? '/';
       }, 300);
 
       try {
-        const response = await fetch(`/download/${selected.value}`);
+        const response = await fetch(`/download/zip/${selected.value}`);
         if (!response.ok) throw new Error('download failed');
         const blob = await response.blob();
         const url = URL.createObjectURL(blob);
