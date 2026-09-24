@@ -1,0 +1,37 @@
+---
+import { getDesignSystems } from '../lib/design-systems';
+
+interface Props {
+  current?: string;
+}
+
+const { current } = Astro.props;
+const systems = await getDesignSystems();
+---
+
+<nav aria-label="Design systems" class="md:sticky md:top-24">
+  <p class="text-sm font-medium uppercase tracking-[0.14em] text-ink-subtle">Design systems</p>
+  <ul class="mt-4 space-y-1">
+    {
+      systems.map((system) => {
+        const active = current === system.slug;
+        return (
+          <li>
+            <a
+              href={system.href}
+              aria-current={active ? 'page' : undefined}
+              class:list={[
+                'block min-h-11 rounded-control px-2 py-2.5 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
+                active
+                  ? 'bg-canvas-elevated text-ink'
+                  : 'text-ink-muted hover:bg-canvas-elevated hover:text-ink',
+              ]}
+            >
+              {system.title}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>

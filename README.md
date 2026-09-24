@@ -10,7 +10,7 @@ Each skill is a folder:
 skills/<name>/SKILL.md
 ```
 
-`name` and `description` in the frontmatter tell an agent when to load the file. The body is the rule set. Install this package and point a project rule at `node_modules/ux-atlas/skills/**/SKILL.md`.
+`name` and `description` in the frontmatter tell an agent when to load the file. The body is the rule set. `metadata.updated` and `metadata.updatedBy` record when the rule set last changed and who changed it. They are not part of that trigger. Install this package and point a project rule at `node_modules/ux-atlas/skills/**/SKILL.md`.
 
 ```bash
 npm install github:ajdcabrera-maker/ux-atlas

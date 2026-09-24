@@ -1,0 +1,62 @@
+---
+import { site } from '../../lib/site';
+import { getDesignSystems } from '../../lib/design-systems';
+import { designSystemCompiled } from '../../lib/design-system-catalog';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import Container from '../../ds/Container.astro';
+import Eyebrow from '../../ds/Eyebrow.astro';
+import Surface from '../../ds/Surface.astro';
+
+const systems = await getDesignSystems();
+---
+
+<SiteLayout
+  title={`Design systems · ${site.name}`}
+  description="Choose a design system and download it as DESIGN.md for the project root."
+>
+  <div class="border-b border-line">
+    <Container class="py-16 md:py-20">
+      {
+        systems.length === 0 ? (
+          <>
+            <Eyebrow>Design systems</Eyebrow>
+            <h1 class="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-5xl">
+              No design systems published
+            </h1>
+            <p class="mt-6 text-lg text-ink-muted">
+              <a href="/" class="text-ink underline decoration-line underline-offset-4">
+                Back home
+              </a>
+            </p>
+          </>
+        ) : (
+          <>
+            <Eyebrow>Design systems</Eyebrow>
+            <h1 class="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-5xl">
+              Design systems
+            </h1>
+            <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted sm:text-xl">
+              Choose a system and put the file at the project root as DESIGN.md.
+            </p>
+            <ul class="mt-12 grid max-w-3xl gap-4">
+              {systems.map((system) => (
+                <li>
+                  <Surface
+                    href={system.href}
+                    interactive
+                    class="block min-h-11 p-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                  >
+                    <h2 class="text-lg font-semibold tracking-tight text-ink">{system.title}</h2>
+                    <p class="mt-2 text-ink-muted">{system.job}</p>
+                    <p class="mt-3 text-sm text-ink-subtle">{designSystemCompiled}</p>
+                    <p class="mt-1 text-sm text-ink-subtle">Last updated {system.updatedLabel}</p>
+                  </Surface>
+                </li>
+              ))}
+            </ul>
+          </>
+        )
+      }
+    </Container>
+  </div>
+</SiteLayout>

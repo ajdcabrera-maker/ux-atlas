@@ -1,0 +1,290 @@
+---
+import { site } from '../../lib/site';
+import { getDesignSystems } from '../../lib/design-systems';
+import { getSkillNav } from '../../lib/skill-nav';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import Container from '../../ds/Container.astro';
+import Eyebrow from '../../ds/Eyebrow.astro';
+
+const systems = await getDesignSystems();
+const firstSkill = (await getSkillNav()).flatMap((section) => section.skills)[0];
+const viewSkills = firstSkill?.href ?? '/';
+---
+
+<SiteLayout
+  title={`Use Atlas in a project · ${site.name}`}
+  description="Put the skills and one design system in a project you already have."
+>
+  <div class="border-b border-line">
+    <Container class="py-16 md:py-20">
+      {
+        systems.length === 0 ? (
+          <>
+            <Eyebrow>Use Atlas</Eyebrow>
+            <h1 class="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-5xl">
+              Use Atlas in a project
+            </h1>
+            <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted sm:text-xl">
+              No design systems published.
+            </p>
+            <p class="mt-6">
+              <a
+                href={viewSkills}
+                class="inline-flex min-h-11 items-center text-ink underline decoration-line underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                View skills
+              </a>
+            </p>
+          </>
+        ) : (
+          <div id="setup">
+            <div id="intro">
+              <Eyebrow>Use Atlas</Eyebrow>
+              <h1 class="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-5xl">
+                Use Atlas in a project
+              </h1>
+              <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted sm:text-xl">
+                Put the skills and one design system in a project you already have.
+              </p>
+            </div>
+
+            <section id="folder" class="mt-10 max-w-2xl">
+              <h2 class="text-lg font-semibold tracking-tight text-ink">Download a project folder</h2>
+              <p class="mt-3 text-sm leading-relaxed text-ink-subtle">
+                This is the easier way to put Atlas in a project.
+              </p>
+
+            <div
+              id="notice"
+              tabindex="-1"
+              class="max-w-2xl scroll-mt-24 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-accent"
+            >
+              <p id="folder-downloaded" hidden class="text-sm font-medium text-ink"></p>
+
+              <section id="copy-limits" class="mt-10" aria-labelledby="copy-limits-title">
+                <h3 id="copy-limits-title" class="text-lg font-semibold tracking-tight text-ink">
+                  What this copy will not do
+                </h3>
+                <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink-muted">
+                  <li>
+                    This folder does not update. The files show the date they were made. Download
+                    again for a newer copy.
+                  </li>
+                  <li>
+                    The agent follows the files in the project. If someone edits them, or this is
+                    not the copy from UX Atlas, the agent follows that version.
+                  </li>
+                  <li>
+                    Files outside the project root, or an incomplete extract, mean the tool is not
+                    following Atlas.
+                  </li>
+                  <li>
+                    Replacing an existing AGENTS.md, CLAUDE.md, or DESIGN.md removes the
+                    instructions already there.
+                  </li>
+                  <li>
+                    The design system matches the public spec on the date in the file. The vendor
+                    can change it later.
+                  </li>
+                  <li>
+                    Atlas guides design decisions. It does not limit what the tool is allowed to
+                    do.
+                  </li>
+                </ul>
+              </section>
+
+              <section id="where-files-go" class="mt-10" aria-labelledby="where-files-go-title">
+                <h3 id="where-files-go-title" class="text-lg font-semibold tracking-tight text-ink">
+                  Where the files go
+                </h3>
+                <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink-muted">
+                  <li>
+                    Unzip so DESIGN.md, AGENTS.md, CLAUDE.md, and the skills folder sit in the
+                    project root.
+                  </li>
+                  <li>If they land inside another folder, move them up.</li>
+                  <li>Keep the file names.</li>
+                  <li>
+                    Read an existing AGENTS.md, CLAUDE.md, or DESIGN.md before you replace it.
+                  </li>
+                  <li>Then prompt as you already do.</li>
+                </ul>
+              </section>
+            </div>
+
+            <form id="folder-form" class="mt-10 max-w-2xl">
+              <fieldset id="design-system" class="min-w-0 border-0 p-0">
+                <legend class="text-lg font-semibold tracking-tight text-ink">Design system</legend>
+                <div class="mt-4 grid gap-3">
+                  {
+                    systems.map((system) => (
+                      <label class="design-option flex min-h-11 cursor-pointer items-start gap-3 rounded-card border border-line bg-canvas-elevated/50 p-5 has-[:checked]:border-line-strong has-[:checked]:bg-canvas-elevated">
+                        <input
+                          type="radio"
+                          name="design-system"
+                          value={system.slug}
+                          class="mt-1 size-4 shrink-0"
+                        />
+                        <span>
+                          <span class="block font-semibold tracking-tight text-ink">{system.title}</span>
+                          <span class="mt-1 block text-ink-muted">{system.job}</span>
+                        </span>
+                      </label>
+                    ))
+                  }
+                  <label class="design-option flex min-h-11 cursor-pointer items-start gap-3 rounded-card border border-line bg-canvas-elevated/50 p-5 has-[:checked]:border-line-strong has-[:checked]:bg-canvas-elevated">
+                    <input type="radio" name="design-system" value="none" class="mt-1 size-4 shrink-0" />
+                    <span>
+                      <span class="block font-semibold tracking-tight text-ink">No design system</span>
+                      <span class="mt-1 block text-ink-muted">This project already has design-system documentation.</span>
+                    </span>
+                  </label>
+                </div>
+                <div id="keep-docs" hidden class="mt-4">
+                  <label class="keep-docs flex min-h-11 cursor-pointer items-start gap-3 rounded-card border border-line p-5">
+                    <input id="keep-docs-check" type="checkbox" class="mt-1 size-4 shrink-0" />
+                    <span class="text-sm leading-relaxed text-ink">
+                      This project already has a DESIGN.md or other design-system documentation. Leave it in place.
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <button
+                id="download-folder"
+                type="button"
+                class="mt-8 inline-flex min-h-11 items-center rounded-pill bg-cta px-4 text-sm font-medium text-cta-fg hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                Download folder
+              </button>
+              <p id="download-status" class="mt-4 text-sm text-ink" role="status" aria-live="polite"></p>
+              <p class="mt-2">
+                <a
+                  href={viewSkills}
+                  class="inline-flex min-h-11 items-center text-ink underline decoration-line underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                >
+                  View skills
+                </a>
+              </p>
+            </form>
+            </section>
+          </div>
+        )
+      }
+    </Container>
+  </div>
+</SiteLayout>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>('#download-folder');
+  const status = document.querySelector<HTMLElement>('#download-status');
+  const fieldset = document.querySelector<HTMLElement>('#design-system');
+  const notice = document.querySelector<HTMLElement>('#notice');
+  const downloaded = document.querySelector<HTMLElement>('#folder-downloaded');
+  const placement = document.querySelector<HTMLElement>('#where-files-go');
+  const costs = document.querySelector<HTMLElement>('#copy-limits');
+  const intro = document.querySelector<HTMLElement>('#intro');
+
+  const keepDocs = document.querySelector<HTMLElement>('#keep-docs');
+  const keepCheck = document.querySelector<HTMLInputElement>('#keep-docs-check');
+  const chooseMessage = 'Choose a design system.';
+  const confirmMessage = 'Confirm this project already has design-system documentation.';
+
+  if (button && status && fieldset && notice && downloaded && placement && costs && intro && keepDocs && keepCheck) {
+    let busy = false;
+
+    fieldset.addEventListener('pointerdown', () => {
+      fieldset.dataset.pointer = 'true';
+    });
+    fieldset.addEventListener('keydown', () => {
+      delete fieldset.dataset.pointer;
+    });
+
+    fieldset.addEventListener('change', () => {
+      if (status.textContent === chooseMessage || status.textContent === confirmMessage) status.textContent = '';
+      const selected = fieldset.querySelector<HTMLInputElement>('input[name="design-system"]:checked');
+      const skipDesign = selected?.value === 'none';
+      keepDocs.hidden = !skipDesign;
+      if (!skipDesign) keepCheck.checked = false;
+    });
+
+    keepCheck.addEventListener('change', () => {
+      if (keepCheck.checked && status.textContent === confirmMessage) status.textContent = '';
+    });
+
+    button.addEventListener('click', async () => {
+      if (busy) return;
+      const selected = document.querySelector<HTMLInputElement>('input[name="design-system"]:checked');
+      if (!selected) {
+        status.textContent = chooseMessage;
+        document.querySelector<HTMLInputElement>('input[name="design-system"]')?.focus();
+        return;
+      }
+      if (selected.value === 'none' && !keepCheck.checked) {
+        status.textContent = confirmMessage;
+        keepCheck.focus();
+        return;
+      }
+
+      busy = true;
+      button.setAttribute('aria-busy', 'true');
+      status.textContent = '';
+      const labelTimer = window.setTimeout(() => {
+        button.textContent = 'Downloading folder';
+      }, 300);
+
+      try {
+        const response = await fetch(`/download/${selected.value}`);
+        if (!response.ok) throw new Error('download failed');
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'ux-atlas.zip';
+        document.body.append(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+
+        downloaded.hidden = false;
+        downloaded.textContent = '';
+        downloaded.setAttribute('role', 'status');
+        downloaded.setAttribute('aria-live', 'polite');
+        notice.prepend(placement);
+        notice.prepend(downloaded);
+        placement.after(costs);
+        intro.before(notice);
+        intro.classList.add('mt-16');
+        window.requestAnimationFrame(() => {
+          downloaded.textContent = 'Folder downloaded.';
+          notice.focus();
+        });
+      } catch {
+        status.textContent = "The folder didn't download. Try again.";
+      } finally {
+        window.clearTimeout(labelTimer);
+        button.textContent = 'Download folder';
+        button.removeAttribute('aria-busy');
+        busy = false;
+      }
+    });
+  }
+</script>
+
+<style>
+  /* A pointer press was drawing the accent outline and dropping it on release. Keyboard focus still rings the choice. */
+  #design-system input {
+    outline: none;
+  }
+
+  #design-system[data-pointer] .design-option:focus-within,
+  #design-system[data-pointer] .keep-docs:focus-within {
+    outline: none;
+  }
+
+  #design-system:not([data-pointer]) .design-option:has(:focus-visible),
+  #design-system:not([data-pointer]) .keep-docs:has(:focus-visible) {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+</style>

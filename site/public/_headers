@@ -1,0 +1,7 @@
+/design-systems/raw/*
+  Content-Type: text/markdown; charset=utf-8
+  Content-Disposition: attachment; filename="DESIGN.md"
+
+/download/*
+  Content-Type: application/zip
+  Content-Disposition: attachment; filename="ux-atlas.zip"

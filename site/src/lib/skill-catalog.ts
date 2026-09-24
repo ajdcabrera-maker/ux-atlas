@@ -10,6 +10,11 @@ export const skillCatalog: Record<string, { title: string; section: string; orde
     section: 'design-ops',
     order: 20,
   },
+  'ux-writing': {
+    title: 'UX Writing',
+    section: 'content',
+    order: 30,
+  },
 };
 
 export function skillMeta(name: string) {

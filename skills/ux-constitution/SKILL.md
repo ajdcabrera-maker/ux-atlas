@@ -1,6 +1,9 @@
 ---
 name: ux-constitution
 description: Foundational UX rules for interaction, psychology, perception, and accessibility. Use for any interface work, and when no narrower skill covers the task. Covers feedback, errors, labels, exits, targets, contrast, focus, and semantic HTML.
+metadata:
+  updated: "2026-09-23"
+  updatedBy: Aaron Cabrera
 ---
 
 Apply these rules to every interface. A narrower skill may add detail. If they conflict, this skill wins.

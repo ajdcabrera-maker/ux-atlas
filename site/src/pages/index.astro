@@ -1,8 +1,11 @@
 ---
-import { site } from '../lib/site';
+import { site, applyMethods } from '../lib/site';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import Container from '../ds/Container.astro';
 import Eyebrow from '../ds/Eyebrow.astro';
+
+const linkClass =
+  'inline-flex min-h-11 items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
 ---
 
 <SiteLayout
@@ -18,13 +21,40 @@ import Eyebrow from '../ds/Eyebrow.astro';
       <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted sm:text-xl">
         An open-source, machine-readable documentation suite. Written for people and for agents.
       </p>
-      <!--
-        Extra intro lines, one per feature, once the site is more than the skills inventory.
+      <!-- One short line per feature. -->
       <p class="mt-6 max-w-2xl text-sm leading-relaxed text-ink-subtle">
         Each skill is a <span class="font-mono text-accent">SKILL.md</span> in the
-        repository. Pick one to read it.
+        repository. Open Skills to read one.
       </p>
-      -->
+      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-ink-subtle">
+        Each design system is a <span class="font-mono text-accent">DESIGN.md</span>.
+        Choose one and download it for the project root.
+      </p>
+      <section class="mt-10" aria-labelledby="apply-title">
+        <h2 id="apply-title" class="text-lg font-semibold tracking-tight text-ink">
+          Use Atlas in a project
+        </h2>
+        <ul class="mt-4 space-y-6">
+          {
+            applyMethods.map((method) => (
+              <li>
+                <a
+                  href={`/download#${method.id}`}
+                  class:list={[
+                    linkClass,
+                    method.primary
+                      ? 'rounded-pill bg-cta px-4 text-sm font-medium text-cta-fg hover:opacity-90'
+                      : 'text-ink underline decoration-line underline-offset-4',
+                  ]}
+                >
+                  {method.label}
+                </a>
+                <p class="mt-3 max-w-2xl text-sm leading-relaxed text-ink-subtle">{method.hint}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
     </Container>
   </div>
 </SiteLayout>

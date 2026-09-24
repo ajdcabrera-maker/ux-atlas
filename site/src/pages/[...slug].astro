@@ -6,6 +6,7 @@ import Container from '../ds/Container.astro';
 import Eyebrow from '../ds/Eyebrow.astro';
 import SkillNav from '../components/SkillNav.astro';
 import { skillMeta } from '../lib/skill-catalog';
+import { formatUpdated } from '../lib/format-updated';
 
 export async function getStaticPaths() {
   const docs = await getCollection('docs');
@@ -32,6 +33,9 @@ const section = meta.section.replace(/-/g, ' ');
         </h1>
         <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted sm:text-xl">
           {entry.data.description}
+        </p>
+        <p class="mt-4 text-sm text-ink-subtle">
+          Last updated {formatUpdated(entry.data.metadata.updated)}. Updated by {entry.data.metadata.updatedBy}.
         </p>
         <div class="docs-prose mt-12 max-w-3xl">
           <Content />

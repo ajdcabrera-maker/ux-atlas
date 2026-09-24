@@ -1,6 +1,7 @@
 import { getCollection } from 'astro:content';
 import { site } from './site';
 import { skillMeta } from './skill-catalog';
+import { getDesignSystems } from './design-systems';
 
 export type SkillLink = {
   id: string;
@@ -67,12 +68,14 @@ export async function getSiteNav() {
   const sections = await getSkillNav();
   const published = sections.flatMap((section) => section.skills);
   const first = published[0];
+  const systems = await getDesignSystems();
 
   const links = site.nav.flatMap((entry): ResolvedNavLink[] => {
     if ('to' in entry) {
       if (!first) return [];
       return [{ label: entry.label, href: first.href, match: 'skills' }];
     }
+    if (entry.href === '/design-systems' && systems.length === 0) return [];
     return [{ label: entry.label, href: entry.href, match: 'path' }];
   });
 

@@ -1,6 +1,9 @@
 ---
 name: design-pipeline
 description: Turn a design request into a sequence of decisions with the person who asked. Use when asked to design, redesign, critique, or add a screen, flow, feature, or product, and when a prompt jumps straight to a layout. Covers framing, requirements, research, benchmarks, prototyping, and high fidelity. Run one stage at a time and wait for a decision before the next. Run this before any component skill.
+metadata:
+  updated: "2026-09-24"
+  updatedBy: Aaron Cabrera
 ---
 
 Run this on any request to design, redesign, critique, or add a screen, flow, or feature. Do one stage per turn. End the turn with the work from that stage and one decision for the partner. Do not start the next stage in the same turn.
@@ -11,6 +14,7 @@ The constitution judges the interface. This skill decides what to make and when 
 
 ## Where to start
 
+- A request that only asks for interface words, with no change to the flow or the screen, is not a design request. Do not start this skill.
 - A new request with no agreed problem starts at Frame.
 - If the partner has already confirmed a stage, start at the next open one and name it.
 - A critique of an existing design starts at Check.

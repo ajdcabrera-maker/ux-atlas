@@ -1,0 +1,54 @@
+---
+import { getCollection, render } from 'astro:content';
+import { site } from '../../lib/site';
+import { getDesignSystems } from '../../lib/design-systems';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import Container from '../../ds/Container.astro';
+import Eyebrow from '../../ds/Eyebrow.astro';
+import DesignSystemNav from '../../components/DesignSystemNav.astro';
+
+export async function getStaticPaths() {
+  const systems = await getDesignSystems();
+  const entries = await getCollection('systems');
+  return systems.map((system) => ({
+    params: { slug: system.slug },
+    props: {
+      system,
+      entry: entries.find((entry) => entry.id === system.slug),
+    },
+  }));
+}
+
+const { system, entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<SiteLayout title={`${system.name} · ${site.name}`} description={system.description}>
+  <div class="border-b border-line">
+    <Container class="grid gap-12 py-16 md:grid-cols-[16rem_1fr] md:py-20">
+      <DesignSystemNav current={system.slug} />
+      <article>
+        <Eyebrow>Design systems</Eyebrow>
+        <h1 class="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-ink sm:text-5xl">
+          {system.name}
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted sm:text-xl">
+          {system.description}
+        </p>
+        <p class="mt-4 text-sm text-ink-subtle">
+          Last updated {system.updatedLabel}. Updated by {system.updatedBy}.
+        </p>
+        <a
+          href={system.downloadHref}
+          download="DESIGN.md"
+          class="mt-8 inline-flex min-h-11 items-center rounded-pill bg-cta px-4 text-sm font-medium text-cta-fg hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        >
+          Download DESIGN.md
+        </a>
+        <div class="docs-prose mt-12 max-w-3xl">
+          <Content />
+        </div>
+      </article>
+    </Container>
+  </div>
+</SiteLayout>
