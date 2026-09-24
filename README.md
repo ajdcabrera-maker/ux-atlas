@@ -23,5 +23,12 @@ The Astro app in `site/` renders those files at [atlas.aarondesign.rocks](https:
 ```bash
 npm run dev
 npm run build
-npm run deploy
 ```
+
+Deploy only after the change is on GitHub `main`. The site renders this repo, and the project-folder download is built from it. A visitor has to get the same files from GitHub that the live site describes.
+
+1. Commit the change.
+2. Push `main` to GitHub (`origin`, https://github.com/ajdcabrera-maker/ux-atlas.git).
+3. From a clean `main` that matches `origin/main`, run `npm run deploy`.
+
+Do not deploy uncommitted work, or a commit that exists only on this machine.
