@@ -1,14 +1,18 @@
 ---
 name: design-pipeline
-description: Turn a design request into a sequence of decisions with the person who asked. Use when asked to design, redesign, critique, or add a screen, flow, feature, or product, and when a prompt jumps straight to a layout. Covers framing, requirements, research, benchmarks, prototyping, and high fidelity. Run one stage at a time and wait for a decision before the next. Run this before any component skill.
+description: Turn a design request into a sequence of decisions with the person who asked. Use when asked to design, redesign, critique, or add a screen, flow, feature, or product, and when a prompt jumps straight to a layout. Covers framing, requirements, research, benchmarks, prototyping, and high fidelity. Guided mode runs one stage at a time and waits for a decision. When the partner says to decide, write the remaining stages and record each decision. Offer Accept and Correct as a choice. Run this before any component skill.
 metadata:
   updated: "2026-09-24"
   updatedBy: Aaron Cabrera
 ---
 
-Run this on any request to design, redesign, critique, or add a screen, flow, or feature. Do one stage per turn. End the turn with the work from that stage and one decision for the partner. Do not start the next stage in the same turn.
+Run this on any request to design, redesign, critique, or add a screen, flow, or feature.
 
-The partner is the person in the conversation. They decide. The end user is the person who will use the product. They are often absent. Do not invent what either of them said, did, or preferred.
+Guided is the default. Do one stage per turn. End the turn with the work from that stage and one decision for the partner. Do not start the next stage in the same turn.
+
+Express starts when the partner says "you decide," or writes a sentence that hands you the remaining decisions. Begin with "Deciding the remaining stages." Write the open stage, then each following stage, in that same turn. Each stage is its own block. Do not fold them into one result. Do not start express before they ask. The turn ends at the record, after Surface.
+
+The partner is the person in the conversation. They decide, until they start express. The end user is the person who will use the product. They are often absent. Do not invent what either of them said, did, or preferred.
 
 The constitution judges the interface. This skill decides what to make and when it is ready. If they conflict about the interface, the constitution wins. A component skill applies only in Surface.
 
@@ -23,11 +27,26 @@ The constitution judges the interface. This skill decides what to make and when 
 
 ## How to move
 
-The stops are Frame, Define, Scope, Structure, Check, and Surface, in that order. Surface starts only after the partner accepts the structure. If Check fails, return to Define or Structure. Do not repair a failed flow by decorating it.
+The stops are Frame, Define, Scope, Structure, Check, and Surface, in that order. Surface starts only after the partner accepts the structure. If Check fails, return to Define or Structure. Do not repair a failed flow by decorating it. In express, record that return and continue.
+
+The waits under each stage are guided stops. In express, skip the wait. End a decision with "Decided:" and the decision. End an assumption with "Assumed:" and the assumption. A question only the partner knows stays a typed question in guided mode. In express it becomes an assumption. Do not turn it into Accept or Correct.
 
 Learn, Benchmark, Another direction, and Test are optional. Propose one only when its rule says to. Say why, what you will do, and what you need from the partner. If they skip it, record the assumption and continue. Do not run it in silence.
 
 Ask one question. Ask only what you cannot responsibly assume. State every assumption you are keeping.
+
+## The choice
+
+When the only decision is accept or correct, present a choice the partner can select without typing. Use the environment's choice control when it has one. Do not ask them to type Yes, No, Accept, or Correct.
+
+The prompt is that stage's own question.
+- Primary option: Accept the stage. It opens the next stage on the next turn.
+- Other option: Correct this stage. It stays on that stage.
+- The control's typed field is for any other answer. Treat that answer as continuing this stage.
+
+If they correct the stage, or the choice does not accept it, say "Stay on this stage. Say what to change." Do not open the next stage.
+
+To leave express, the partner names the stage, for example "Change Structure." Answer "Express ended. Structure is open." Express stays off, and that stage waits. Express cannot be stopped while a response is still being written.
 
 ## 1. Frame
 

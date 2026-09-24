@@ -33,7 +33,7 @@ If a result breaks one of these, it is broken.
 1. Read only the \`name\` and \`description\` frontmatter of the other \`SKILL.md\` files. Do not read every body up front.
 2. If one description matches the task, read that body and follow it together with the constitution above.
 3. If the request only asks to write, rewrite, or name interface copy, and does not ask to change the flow or the screen, read \`skills/ux-writing/SKILL.md\`. Do not start the design pipeline.
-4. If the task is to design, redesign, critique, or add a screen, flow, or feature, read \`skills/design-pipeline/SKILL.md\` and do only its current stage. A narrower skill applies only inside the stage that skill names.
+4. If the task is to design, redesign, critique, or add a screen, flow, or feature, read \`skills/design-pipeline/SKILL.md\` and follow its guided or express rule. A narrower skill applies only inside the stage that skill names.
 5. If several match and the pipeline does not, read the most specific one.
 6. If none match, the constitution is enough. Do not load the rest of the library just in case.
 `;
