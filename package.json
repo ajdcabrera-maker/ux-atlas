@@ -5,8 +5,13 @@
   "private": false,
   "description": "UX skills for agents. Each skill is skills/<name>/SKILL.md.",
   "files": [
-    "skills"
+    "skills",
+    "instructions",
+    "scripts"
   ],
+  "bin": {
+    "ux-atlas": "./scripts/init.mjs"
+  },
   "exports": {
     "./skills/*": "./skills/*"
   },
@@ -14,6 +19,7 @@
     "dev": "npm --prefix site run dev",
     "build": "npm --prefix site run build",
     "preview": "npm --prefix site run preview",
-    "deploy": "npm --prefix site run deploy"
+    "deploy": "npm --prefix site run deploy",
+    "postinstall": "node scripts/init.mjs"
   }
 }

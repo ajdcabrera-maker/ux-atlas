@@ -10,11 +10,15 @@ Each skill is a folder:
 skills/<name>/SKILL.md
 ```
 
-`name` and `description` in the frontmatter tell an agent when to load the file. The body is the rule set. `metadata.updated` and `metadata.updatedBy` record when the rule set last changed and who changed it. They are not part of that trigger. Install this package and point a project rule at `node_modules/ux-atlas/skills/**/SKILL.md`.
+`name` and `description` in the frontmatter tell an agent when to load the file. The body is the rule set. `metadata.updated` and `metadata.updatedBy` record when the rule set last changed and who changed it. They are not part of that trigger.
 
 ```bash
 npm install github:ajdcabrera-maker/ux-atlas
 ```
+
+The install writes a pointer at the end of the project's `AGENTS.md` and `CLAUDE.md`. It does not replace the rest of those files. The pointer sends the agent to `node_modules/ux-atlas/instructions/AGENTS.md` and to `node_modules/ux-atlas/skills/**/SKILL.md`. `npm update ux-atlas` replaces the skills. The pointer stays. If install scripts are disabled, run `npx ux-atlas init`.
+
+A `DESIGN.md` at the project root stays the project's file. The package update does not replace it.
 
 ## Site
 

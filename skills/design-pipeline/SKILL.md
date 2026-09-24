@@ -37,12 +37,14 @@ Ask one question. Ask only what you cannot responsibly assume. State every assum
 
 ## The choice
 
-When the only decision is accept or correct, present a choice the partner can select without typing. Use the environment's choice control when it has one. Do not ask them to type Yes, No, Accept, or Correct.
+Do both, in this order. Write the whole stage in the message first. Then present the clickable choice. The message is what the partner reads. The choice is how they answer. The stage stays in the message. The choice does not replace it, and the message does not replace the choice.
 
-The prompt is that stage's own question.
-- Primary option: Accept the stage. It opens the next stage on the next turn.
-- Other option: Correct this stage. It stays on that stage.
-- The control's typed field is for any other answer. Treat that answer as continuing this stage.
+Do not present the choice before the stage is written. Do not send the choice in a turn that has no stage text. Do not end the turn with the stage and free text alone.
+
+When the only decision is accept or correct, the choices are these.
+- Accept the stage. It opens the next stage on the next turn.
+- Correct this stage. It stays on that stage.
+- Any other answer is typed. Treat that answer as continuing this stage.
 
 If they correct the stage, or the choice does not accept it, say "Stay on this stage. Say what to change." Do not open the next stage.
 

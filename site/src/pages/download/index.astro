@@ -12,8 +12,8 @@ const viewSkills = firstSkill?.href ?? '/';
 ---
 
 <SiteLayout
-  title={`Use Atlas in a project · ${site.name}`}
-  description="Put the skills and one design system in a project you already have."
+  title={`Download a project folder · ${site.name}`}
+  description="A copy of the skills and one design system. This copy does not update."
 >
   <div class="border-b border-line">
     <Container class="py-16 md:py-20">
@@ -41,18 +41,22 @@ const viewSkills = firstSkill?.href ?? '/';
             <div id="intro">
               <Eyebrow>Use Atlas</Eyebrow>
               <h1 class="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-5xl">
-                Use Atlas in a project
+                Download a project folder
               </h1>
               <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted sm:text-xl">
-                Put the skills and one design system in a project you already have.
+                A copy of the skills and one design system. This copy does not update.
+              </p>
+              <p class="mt-6">
+                <a
+                  href="/install"
+                  class="inline-flex min-h-11 items-center text-ink underline decoration-line underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                >
+                  Install the package
+                </a>
               </p>
             </div>
 
             <section id="folder" class="mt-10 max-w-2xl">
-              <h2 class="text-lg font-semibold tracking-tight text-ink">Download a project folder</h2>
-              <p class="mt-3 text-sm leading-relaxed text-ink-subtle">
-                This is the easier way to put Atlas in a project.
-              </p>
 
             <div
               id="notice"
