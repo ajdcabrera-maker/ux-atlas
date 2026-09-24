@@ -1,71 +1,44 @@
 ---
-import { getCollection } from 'astro:content';
-import { skillMeta } from '../lib/skill-catalog';
+import { getSkillNav } from '../lib/skill-nav';
 
 interface Props {
   current?: string;
 }
 
 const { current } = Astro.props;
-
-const docs = (await getCollection('docs'))
-  .map((entry) => ({ entry, meta: skillMeta(entry.data.name) }))
-  .sort((a, b) => {
-    if (a.meta.order !== b.meta.order) return a.meta.order - b.meta.order;
-    return a.meta.title.localeCompare(b.meta.title);
-  });
-
-function sectionLabel(id: string) {
-  return id
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-}
-
-function sectionRank(section: string) {
-  const orders = docs.filter((item) => item.meta.section === section).map((item) => item.meta.order);
-  return Math.min(...orders);
-}
-
-const sections = [...new Set(docs.map((item) => item.meta.section))].sort((a, b) => {
-  const byOrder = sectionRank(a) - sectionRank(b);
-  return byOrder !== 0 ? byOrder : a.localeCompare(b);
-});
+const sections = await getSkillNav();
 ---
 
 <nav aria-label="Skills" class="md:sticky md:top-24">
   <p class="text-sm font-medium uppercase tracking-[0.14em] text-ink-subtle">Skills</p>
   <ul class="mt-4 space-y-6">
     {
-      sections.map((section) => {
-        const entries = docs.filter((item) => item.meta.section === section);
-        return (
-          <li>
-            <p class="text-sm font-medium text-ink">{sectionLabel(section)}</p>
-            <ul class="mt-2 space-y-1">
-              {entries.map(({ entry, meta }) => {
-                const active = current === entry.id;
-                return (
-                  <li>
-                    <a
-                      href={`/${entry.id}`}
-                      aria-current={active ? 'page' : undefined}
-                      class:list={[
-                        'block rounded-control px-2 py-1.5 text-sm',
-                        active
-                          ? 'bg-canvas-elevated text-ink'
-                          : 'text-ink-muted hover:bg-canvas-elevated hover:text-ink',
-                      ]}
-                    >
-                      {meta.title}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </li>
-        );
-      })
+      sections.map((section) => (
+        <li>
+          <p class="text-sm font-medium text-ink">{section.label}</p>
+          <ul class="mt-2 space-y-1">
+            {section.skills.map((skill) => {
+              const active = current === skill.id;
+              return (
+                <li>
+                  <a
+                    href={skill.href}
+                    aria-current={active ? 'page' : undefined}
+                    class:list={[
+                      'block min-h-11 rounded-control px-2 py-2.5 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
+                      active
+                        ? 'bg-canvas-elevated text-ink'
+                        : 'text-ink-muted hover:bg-canvas-elevated hover:text-ink',
+                    ]}
+                  >
+                    {skill.title}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </li>
+      ))
     }
   </ul>
 </nav>

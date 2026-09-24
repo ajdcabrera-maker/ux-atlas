@@ -17,7 +17,8 @@ If a result breaks one of these, it is broken.
 
 1. Read only the `name` and `description` frontmatter of the other `SKILL.md` files. Do not read every body up front.
 2. If one description matches the task, read that body and follow it together with the constitution above.
-3. If several match, read the most specific one.
-4. If none match, the constitution is enough. Do not load the rest of the library just in case.
+3. If the task is to design, redesign, critique, or add a screen, flow, or feature, read `skills/design-pipeline/SKILL.md` and do only its current stage. A narrower skill applies only inside the stage that skill names.
+4. If several match and the pipeline does not, read the most specific one.
+5. If none match, the constitution is enough. Do not load the rest of the library just in case.
 
 A new skill is `skills/<name>/SKILL.md` with `name` and `description`. Write the words that should trigger it in the description. Register its `title`, `section`, and `order` in `site/src/lib/skill-catalog.ts`.

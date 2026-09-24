@@ -74,6 +74,6 @@ Primitives live in `src/ds/`. Chrome composes them from `src/components/` and `s
 | `/:section/:slug` | `src/pages/[...slug].astro` | One route per content entry |
 | `/404` | `src/pages/404.astro` | Worker `not_found_handling` |
 
-Skills live in `skills/<name>/SKILL.md` at the repo root. A skill’s frontmatter is `name` and `description`. `src/lib/skill-catalog.ts` holds `title`, `section`, and `order` for the site, keyed by `name`. A section’s place is the lowest order among its skills. The site builds `/{section}/{name}`, so `ux-constitution` in the foundations section publishes at `/foundations/ux-constitution`. Add a header link in `src/lib/site.ts` only when it should stay in the chrome.
+Skills live in `skills/<name>/SKILL.md` at the repo root. A skill’s frontmatter is `name` and `description`. `src/lib/skill-catalog.ts` holds `title`, `section`, and `order` for the site, keyed by `name`. A section’s place is the lowest order among its skills. The site builds `/{section}/{name}`, so `ux-constitution` in the foundations section publishes at `/foundations/ux-constitution`. The sidenav reads that catalog on skill pages. The homepage has no sidenav. Header, burger, and footer read `nav` in `src/lib/site.ts`. `to: 'first-skill'` opens the skill with the lowest order.
 
 **Hosting:** `atlas.aarondesign.rocks` on the `ux-atlas` worker. `site` in `astro.config.mjs` and `url` in `src/lib/site.ts` stay on that hostname.
