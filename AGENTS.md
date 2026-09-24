@@ -30,3 +30,7 @@ Consult these guides before working on related tasks:
 - [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
 - [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
 - [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+
+<!-- ux-atlas -->
+Follow node_modules/ux-atlas/instructions/AGENTS.md. Skills are in node_modules/ux-atlas/skills/**/SKILL.md.
+<!-- /ux-atlas -->
