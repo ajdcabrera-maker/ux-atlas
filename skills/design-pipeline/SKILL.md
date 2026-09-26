@@ -100,7 +100,7 @@ Judge the accepted flow against the brief and the constitution.
 
 Specify the interface only after the partner accepts the structure.
 - Apply the constitution. Apply a component skill only for an element the screen actually needs.
-- Apply UX Writing under the product class from Define. Density and formality may follow the class. Do not invent a brand voice. Do not generate marketing assets. UX Writing still owns the strings.
+- Apply the ux-writing skill under the product class from Define. That skill settles voice and tone when needed, then the strings. Do not invent a brand voice outside it. Do not generate marketing assets.
 - Specify the states that element can be in: default, hover, focus, loading, success, and error, where those exist.
 - Use the product's existing visual language. Do not invent a one-off system.
 - Leave unresolved questions listed. Do not hide them in the mock.

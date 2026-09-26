@@ -1,25 +1,42 @@
 ---
 name: ux-writing
-description: Write, rewrite, or name interface copy. Covers buttons, labels, headings, empty states, errors, success, hints, and destructive confirmation. Use when the prompt is content generation or asks for words. During a design pipeline, apply only in Structure for the action and state names, and in Surface for the strings. A copy-only request does not start the design pipeline.
+description: Write, rewrite, name, or audit interface copy. Covers voice and tone, buttons, labels, headings, empty states, errors, success, hints, destructive confirmation, and copy review across screens. Use when the prompt is content generation, asks for words, asks how the product should sound, or asks for a copy audit. During a design pipeline, apply only in Structure for the action and state names, and in Surface for voice then strings. A copy-only request does not start the design pipeline. Do not invent a playful voice for sport. Do not generate marketing assets, logos, or campaigns.
 metadata:
-  updated: "2026-09-24"
+  updated: "2026-09-26"
   updatedBy: Aaron Cabrera
 ---
 
-Write the words a person reads in the interface. The constitution judges the interface. This skill decides the words. If they conflict, the constitution wins.
+Write the words a person reads in the interface. The constitution judges the interface. This skill decides the words and how the product speaks. If they conflict, the constitution wins on clarity and honesty.
 
-A `DESIGN.md` at the project root may set terminology, casing, or a length limit. Follow it for those three. If it is silent, use the rules below. Do not import a brand voice from a design system that does not state one.
+A `DESIGN.md` at the project root may set terminology, casing, length limit, voice, or tone. Follow it when it speaks. Do not invent a competing brand voice when it already states one.
 
-Voice stays plain and direct unless the partner has given another voice. Tone changes with the moment. Errors are calm. Success is short. Empty states are plain. Destructive actions are serious. Do not invent a playful voice, a quote, or a claim that readers tested the copy.
+Do not generate marketing assets, campaign decks, logos, or image copy factories. Do not invent a quote or a claim that readers tested the copy.
 
 ## When to run
 
-- The request is only to write, rewrite, or name interface copy. Run this skill. Do not start the design pipeline.
-- The design pipeline is in Structure. Name the primary action, the empty state, the error, and the exit. One line each. Do not write body copy.
-- The design pipeline is in Surface. Write the strings for the controls and states that stage is specifying.
-- Do not run during Frame, Define, Scope, or Check unless the partner asked for words in that turn.
+- The request is only to write, rewrite, name, or audit interface copy, or to set how the product should sound. Run this skill. Do not start the design pipeline.
+- The design pipeline is in Structure. Name the primary action, the empty state, the error, and the exit. One line each. Do not write body copy. Voice stays light here unless the partner asked for it.
+- The design pipeline is in Surface. Settle voice and tone for this screen if needed, then write the strings.
+- Do not run during Frame, Define, Scope, or Check unless the partner asked for words or voice in that turn.
 
-Ask one question, and only if two audiences would use different words for the same object. Otherwise use the partner's word and state that assumption.
+Ask one question, and only if two audiences would use different words for the same object, or if voice is unknown and the ask needs it. Otherwise use the partner's word and state that assumption.
+
+## Voice and tone
+
+Do this before writing or auditing strings when voice is not already settled for this work.
+
+**Voice** is who the product is. It stays stable across screens.
+**Tone** is how the product sounds in a moment. It shifts: errors stay calm; success stays short; empty stays plain; destructive moments stay serious; celebratory moments may warm without becoming false.
+
+1. **Already stated.** If `DESIGN.md`, the prompt, or this conversation already gives voice and tone, record them (Decided or Assumed) and do not stop to ask.
+2. **Ask.** If unknown and the work needs a voice decision, ask one or two plain questions — for example how formal they want to sound, and three words they want people to feel. Say why it matters for on-screen words.
+3. **Default.** If they cannot say, use plain and direct. Record that Assumed. Do not invent a playful, quirky, or “fun” brand personality.
+
+Respect the product class from Define when one exists (for example denser and more formal for a work tool; warmer for a showcase). Class hints formality; this section still names the voice.
+
+Do not use slang, memes, or jokes in errors, money, health, or irreversible moments.
+
+When the ask is only voice or tone, produce the short guide (voice, tone by moment, words to prefer or avoid, assumptions) and stop. Do not invent a full string set unless they asked for strings too.
 
 ## How people read
 
@@ -66,6 +83,18 @@ The control names the object. The confirmation says what will be lost and that i
 - "Delete project" and "This project will be removed. You cannot undo this."
 - The constitution owns the interaction for an irreversible delete, including typing the name. Write the words for that step. Do not replace it with a softer label.
 
+## Copy audit
+
+When the partner asks to audit or review copy across a project or many screens:
+
+1. Settle voice and tone (silent if already known; default plain and direct if they cannot say).
+2. Walk the existing interface strings against that voice, tone-by-moment, these writing rules, and the constitution.
+3. Report what breaks voice, tone, clarity, or consistency, with rewritten strings where a fix is needed.
+
+Reading existing product copy in the project is allowed for this audit. Do not expand into marketing asset generation.
+
+A single block (for example hero landing copy) is ordinary write/rewrite under voice and tone — not a full-project audit.
+
 ## What to hand back
 
 Structure, and nothing more:
@@ -75,7 +104,7 @@ Structure, and nothing more:
 - Error: …
 - Exit: …
 
-Surface, or a copy-only request: each string labeled with its job. Include only the states the screen has.
+Surface, or a copy-only request: each string labeled with its job. Include only the states the screen has. When voice was decided in this turn, state it once above the strings.
 
 - Button: …
 - Empty: …
@@ -85,4 +114,4 @@ Surface, or a copy-only request: each string labeled with its job. Include only 
 
 If a length limit cuts the string, keep the verb and the object. Cut the rest.
 
-When this skill is used on its own, stop after the strings. Do not change the product. The constitution asks before any change, using its Choice block. During the design pipeline, hand the strings to that stage and do not ask to implement here.
+When this skill is used on its own, stop after the guide and/or the strings. Do not change the product. The constitution asks before any change, using its Choice block. During the design pipeline, hand the strings to that stage and do not ask to implement here.

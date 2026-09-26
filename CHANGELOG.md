@@ -22,6 +22,7 @@ Write what a person using Atlas can do now.
 - In the design pipeline, Structure runs user flow and then information architecture.
 - In the design pipeline, Learn and Benchmark are one Evidence move that calls the evidence skill.
 - In the design pipeline, Define sets a product class when it changes what Structure prioritizes. If the class is obvious, the agent records it without stopping to ask.
+- UX Writing settles voice and tone (default plain and direct when unknown), writes interface strings, and can audit copy across a project. It does not invent a brand voice or generate marketing assets.
 
 ## 24 September 2026
 
