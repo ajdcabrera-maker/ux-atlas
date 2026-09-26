@@ -1,8 +1,8 @@
 ---
 name: ux-constitution
-description: Foundational UX rules for interaction, psychology, perception, and accessibility. Use for any interface work, and when no narrower skill covers the task. Covers feedback, errors, labels, exits, targets, contrast, focus, and semantic HTML.
+description: Foundational UX rules for interaction, psychology, perception, and accessibility. Use for any interface work, and when no narrower skill covers the task. Covers feedback, errors, labels, exits, targets, contrast, focus, and semantic HTML. After a skill would execute, implement, or change the interface or the flow, stop and ask before changing the product. There is no exemption.
 metadata:
-  updated: "2026-09-23"
+  updated: "2026-09-26"
   updatedBy: Aaron Cabrera
 ---
 
@@ -185,3 +185,11 @@ People complete simple shapes. Extra chrome is noise.
 - A custom control exposes name, role, and value when no native element fits.
 - Do not put a click handler on a `div` or `span` and call it a button.
 - Do not add ARIA that repeats what native HTML already says.
+
+## 5. Confirmation
+
+This is the last step before a skill's outcome changes the product. It applies to every skill that would execute, implement, or change the interface or the flow.
+- Stop and ask the partner to confirm before changing the product.
+- Ask for a small change and for a large one.
+- Guided and express both ask. Deciding the approach is not a confirmation to implement.
+- Do not change the product before they choose. There is no exemption.

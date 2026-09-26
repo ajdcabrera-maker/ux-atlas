@@ -10,7 +10,7 @@ const exitClass =
 
 <SiteLayout
   title={`Install the package · ${site.name}`}
-  description="The agent follows the installed skills. A package update brings newer skills."
+  description="A design layer for an agent process you already have."
 >
   <div class="border-b border-line">
     <Container class="py-16 md:py-20">
@@ -19,7 +19,7 @@ const exitClass =
         Install the package
       </h1>
       <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted sm:text-xl">
-        The agent follows the installed skills. A package update brings newer skills.
+        A design layer for an agent process you already have.
       </p>
       <pre class="mt-8 max-w-2xl overflow-x-auto rounded-card border border-line bg-canvas-elevated/50 p-5 text-sm text-ink"><code>npm install github:ajdcabrera-maker/ux-atlas</code></pre>
       <p class="mt-4 max-w-2xl text-sm leading-relaxed text-ink-muted">
@@ -28,9 +28,13 @@ const exitClass =
         project root stays in place.
       </p>
       <p class="mt-6 max-w-2xl text-sm leading-relaxed text-ink-muted">
-        If the project has no DESIGN.md yet.
+        If a simple prompt is not yet something Atlas can act on.
       </p>
-      <p class="mt-2">
+      <p class="mt-2 max-w-2xl text-sm leading-relaxed text-ink-muted">
+        Adds the brief skill to the project. The skill translates a prompt into an actionable task for UX Atlas. This command also tells AGENTS.md to read the brief skill first.
+      </p>
+      <pre class="mt-4 max-w-2xl overflow-x-auto rounded-card border border-line bg-canvas-elevated/50 p-5 text-sm text-ink"><code>npx ux-atlas brief</code></pre>
+      <p class="mt-6">
         <a href="/design-systems" class={exitClass}>Choose a design system</a>
       </p>
       <p class="mt-6">

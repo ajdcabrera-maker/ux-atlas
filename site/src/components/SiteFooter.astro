@@ -5,6 +5,7 @@ import Container from '../ds/Container.astro';
 
 const year = new Date().getFullYear();
 const { links } = await getSiteNav();
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 
 <footer class="border-t border-line">
@@ -30,6 +31,21 @@ const { links } = await getSiteNav();
               {link.label}
             </a>
           ))}
+          {site.footer.map((link) => {
+            const current = path === link.href;
+            return (
+              <a
+                href={link.href}
+                aria-current={current ? 'page' : undefined}
+                class:list={[
+                  'flex min-h-11 items-center transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
+                  current ? 'text-ink' : 'text-ink-muted',
+                ]}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
       )
     }

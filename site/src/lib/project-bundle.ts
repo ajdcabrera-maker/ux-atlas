@@ -5,15 +5,20 @@ import path from 'node:path';
 const repoRoot = path.resolve(process.cwd(), '..');
 
 /**
- * Same text in AGENTS.md and CLAUDE.md. Skill selection matches `.cursorrules`,
- * without the Atlas catalog line, which only applies in this repo.
+ * Same text in AGENTS.md and CLAUDE.md. The brief line is included only when
+ * the folder includes the brief skill.
  */
-export function projectInstructions(includeDesignSystem: boolean) {
+export function projectInstructions(includeDesignSystem: boolean, includeBrief: boolean) {
   const design = includeDesignSystem
     ? 'Follow the `DESIGN.md` at this project root. It may set terminology, casing, or a length limit. Follow it for those three.'
     : 'This project already has design-system documentation. Do not add or replace a `DESIGN.md`. If that documentation sets terminology, casing, or a length limit, follow it for those three.';
+  const brief = includeBrief
+    ? 'On every request, with no exemption, read `skills/brief/SKILL.md` and follow it before any other skill. It does not choose the next skill.\n\n'
+    : '';
 
-  return `Skills live in \`skills/**/SKILL.md\`. Each file's \`name\` and \`description\` are the disclosure layer. The body is the rule set.
+  return `${brief}Skills live in \`skills/**/SKILL.md\`. Each file's \`name\` and \`description\` are the disclosure layer. The body is the rule set.
+
+Read only the name and description. When a description matches the request, read that body and follow it. If several match, read the most specific one. Do not read every body up front.
 
 ${design}
 
@@ -25,24 +30,15 @@ For any UI, UX, accessibility, or component work, apply this constitution. It su
 2. **Psychology:** Minimize cognitive load. Break complex forms into steps. Primary actions are at least 44×44px and easy to reach.
 3. **Perception:** Group related elements with spacing and surfaces. Interactive elements must look distinct from static ones.
 4. **Inclusivity:** WCAG 2.1 AA. Semantic HTML. 4.5:1 text contrast. Do not remove \`:focus-visible\` without an equal replacement. Dynamic updates use \`aria-live\`.
+5. **Confirmation:** After a skill would execute, implement, or change the interface or the flow, stop and ask before changing the product. The size does not matter. There is no exemption.
 
 If a result breaks one of these, it is broken.
-
-## Task skill
-
-1. Read only the \`name\` and \`description\` frontmatter of the other \`SKILL.md\` files. Do not read every body up front.
-2. If one description matches the task, read that body and follow it together with the constitution above.
-3. If the request only asks to write, rewrite, or name interface copy, and does not ask to change the flow or the screen, read \`skills/ux-writing/SKILL.md\`. Do not start the design pipeline.
-4. If the request only asks where something lives, or what a page, step, or section is called, and does not ask to design the screen, read \`skills/information-architecture/SKILL.md\`. Do not start the design pipeline.
-5. If the task is to design, redesign, critique, or add a screen, flow, or feature, read \`skills/design-pipeline/SKILL.md\` and follow its guided or express rule. A narrower skill applies only inside the stage that skill names.
-6. If several match and the pipeline does not, read the most specific one.
-7. If none match, the constitution is enough. Do not load the rest of the library just in case.
 `;
 }
 
-export function buildProjectZip(slug: string) {
+export function buildProjectZip(slug: string, includeBrief: boolean) {
   const includeDesignSystem = slug !== 'none';
-  const instructions = Buffer.from(projectInstructions(includeDesignSystem));
+  const instructions = Buffer.from(projectInstructions(includeDesignSystem, includeBrief));
   const files: { name: string; data: Buffer }[] = [
     { name: 'AGENTS.md', data: instructions },
     { name: 'CLAUDE.md', data: instructions },
@@ -54,6 +50,11 @@ export function buildProjectZip(slug: string) {
       throw new Error(`No DESIGN.md for ${slug}`);
     }
     files.push({ name: 'DESIGN.md', data: fs.readFileSync(designPath) });
+  }
+
+  if (includeBrief) {
+    const briefPath = path.join(repoRoot, 'optional', 'brief', 'SKILL.md');
+    files.push({ name: 'skills/brief/SKILL.md', data: fs.readFileSync(briefPath) });
   }
 
   for (const file of skillFiles()) {

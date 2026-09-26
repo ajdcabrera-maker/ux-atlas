@@ -31,11 +31,12 @@ npm run build
 
 When the request is to deploy, run this whole workflow. The site renders this repo, and the project-folder download is built from it. A visitor has to get the same files from GitHub that the live site describes.
 
-1. Run `npm run lint`.
-2. Run `npm run build`.
-3. Check `git status`. If lint, the build, or the work already agreed produced a diff, include it. Do not stop to ask which files to keep.
-4. Write down what the commit contains, and why, before deploying.
-5. `git add` the change, commit it, and push `main` to GitHub (`origin`, https://github.com/ajdcabrera-maker/ux-atlas.git).
-6. From a clean `main` that matches `origin/main`, run `npm run deploy`.
+1. Update `CHANGELOG.md` before anything else. Add a new date at the top. Under it, use Added, Changed, or Fixed. Write what a person using Atlas can do now.
+2. Run `npm run lint`.
+3. Run `npm run build`.
+4. Check `git status`. If the changelog, lint, the build, or the work already agreed produced a diff, include it. Do not stop to ask which files to keep.
+5. Write down what the commit contains, and why, before deploying.
+6. `git add` the change, commit it, and push `main` to GitHub (`origin`, https://github.com/ajdcabrera-maker/ux-atlas.git).
+7. From a clean `main` that matches `origin/main`, run `npm run deploy`.
 
 Do not deploy uncommitted work, or a commit that exists only on this machine.

@@ -36,4 +36,12 @@ const docs = defineCollection({
   }),
 });
 
-export const collections = { docs, systems };
+const changelog = defineCollection({
+  loader: glob({
+    pattern: 'CHANGELOG.md',
+    base: '..',
+    generateId: () => 'changelog',
+  }),
+});
+
+export const collections = { docs, systems, changelog };

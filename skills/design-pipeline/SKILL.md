@@ -1,6 +1,6 @@
 ---
 name: design-pipeline
-description: Turn a design request into a sequence of decisions with the person who asked. Use when asked to design, redesign, critique, or add a screen, flow, feature, or product, and when a prompt jumps straight to a layout. Covers framing, requirements, research, benchmarks, prototyping, and high fidelity. Guided mode runs one stage at a time and waits for a decision. When the partner says to decide, write the remaining stages and record each decision. Offer Accept and Correct as a choice. Run this before any component skill.
+description: Turn a design request into a sequence of decisions with the person who asked. Use when asked to design, redesign, critique, discuss, plan, or change a screen, flow, feature, or product, and when a prompt jumps straight to a layout. Do not answer that request with an unstaged plan. Covers framing, requirements, research, benchmarks, prototyping, and high fidelity. Guided mode runs one stage at a time and waits for a decision. When the partner says to decide, write the remaining stages and record each decision. Offer Accept and Correct as a choice. After the record, ask whether to implement. Do not implement before they choose. There is no exemption. Run this before any component skill.
 metadata:
   updated: "2026-09-26"
   updatedBy: Aaron Cabrera
@@ -10,7 +10,7 @@ Run this on any request to design, redesign, critique, or add a screen, flow, or
 
 Guided is the default. Do one stage per turn. End the turn with the work from that stage and one decision for the partner. Do not start the next stage in the same turn.
 
-Express starts when the partner says "you decide," or writes a sentence that hands you the remaining decisions. Begin with "Deciding the remaining stages." Write the open stage, then each following stage, in that same turn. Each stage is its own block. Do not fold them into one result. Do not start express before they ask. The turn ends at the record, after Surface.
+Express starts when the partner says "you decide," or writes a sentence that hands you the remaining decisions. Begin with "Deciding the remaining stages." Write the open stage, then each following stage, in that same turn. Each stage is its own block. Do not fold them into one result. Do not start express before they ask. The turn ends at the record, after Surface. Then ask whether to implement. Do not implement in that turn. Deciding the approach is not a choice to implement.
 
 The partner is the person in the conversation. They decide, until they start express. The end user is the person who will use the product. They are often absent. Do not invent what either of them said, did, or preferred.
 
@@ -18,6 +18,8 @@ The constitution judges the interface. This skill decides what to make and when 
 
 ## Where to start
 
+- A brief has already restated the request. Use that restatement. Do not show it again. Choose the stage with the rules below. The brief does not choose this skill.
+- A request to discuss, plan, or change the UI starts at Frame. Do not replace this stage with an unstaged plan.
 - A request that only asks for interface words, with no change to the flow or the screen, is not a design request. Do not start this skill.
 - A new request with no agreed problem starts at Frame.
 - If the partner has already confirmed a stage, start at the next open one and name it.
@@ -129,3 +131,5 @@ Propose a test with end users before calling a new or critical flow done.
 ## Record
 
 When the partner asks for the record, or accepts Surface, give them the problem, the scope, the decisions, the flow, the interface, the open questions, and what was not tested.
+
+Then ask whether to implement that record. Guided and express both ask. The choices are Implement the record, and Leave the record. Do not implement before they choose. The size of the change does not matter. A sentence that chooses the approach is not a choice to implement. There is no exemption.

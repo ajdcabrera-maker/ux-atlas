@@ -21,14 +21,14 @@ export const applyMethods: ApplyMethod[] = [
   {
     id: 'package',
     label: 'Install the package',
-    hint: 'The agent follows the installed skills. A package update brings newer skills.',
+    hint: 'The design skills. A package update brings newer skills. The brief skill is not in this package.',
     href: '/install',
     primary: true,
   },
   {
     id: 'folder',
     label: 'Download a project folder',
-    hint: 'A copy of the skills and one design system. This copy does not update.',
+    hint: 'A copy for a project that does not yet turn a prompt into something Atlas can act on. This copy does not update.',
     href: '/download',
   },
 ];
@@ -41,4 +41,6 @@ export const site = {
     { label: 'Design systems', href: '/design-systems' },
     { label: 'Install the package', href: '/install' },
   ] as SiteNavEntry[],
+  /** Reference links. The header stays the task list in `nav`. */
+  footer: [{ label: 'Changelog', href: '/changelog' }] as { label: string; href: string }[],
 };

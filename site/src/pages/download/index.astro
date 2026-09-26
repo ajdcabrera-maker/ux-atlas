@@ -13,7 +13,7 @@ const viewSkills = firstSkill?.href ?? '/';
 
 <SiteLayout
   title={`Download a project folder · ${site.name}`}
-  description="A copy of the skills and one design system. This copy does not update."
+  description="A design layer for an agent process you already have. A copy of the skills and one design system, for a project that does not yet turn a prompt into something Atlas can act on. This copy does not update."
 >
   <div class="border-b border-line">
     <Container class="py-16 md:py-20">
@@ -44,7 +44,7 @@ const viewSkills = firstSkill?.href ?? '/';
                 Download a project folder
               </h1>
               <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted sm:text-xl">
-                A copy of the skills and one design system. This copy does not update.
+                A design layer for an agent process you already have. A copy of the skills and one design system, for a project that does not yet turn a prompt into something Atlas can act on. This copy does not update.
               </p>
               <p class="mt-6">
                 <a
@@ -111,7 +111,7 @@ const viewSkills = firstSkill?.href ?? '/';
                   <li>
                     Read an existing AGENTS.md, CLAUDE.md, or DESIGN.md before you replace it.
                   </li>
-                  <li>Then prompt as you already do.</li>
+                  <li>Then prompt with a request Atlas can act on.</li>
                 </ul>
               </section>
             </div>
@@ -154,6 +154,26 @@ const viewSkills = firstSkill?.href ?? '/';
                 </div>
               </fieldset>
 
+              <fieldset id="brief-skill" class="mt-10 min-w-0 border-0 p-0">
+                <legend class="text-lg font-semibold tracking-tight text-ink">Brief skill</legend>
+                <div class="mt-4 grid gap-3">
+                  <label class="design-option flex min-h-11 cursor-pointer items-start gap-3 rounded-card border border-line bg-canvas-elevated/50 p-5 has-[:checked]:border-line-strong has-[:checked]:bg-canvas-elevated">
+                    <input type="radio" name="brief-skill" value="brief" class="mt-1 size-4 shrink-0" />
+                    <span>
+                      <span class="block font-semibold tracking-tight text-ink">Include the brief skill</span>
+                      <span class="mt-1 block text-ink-muted">Turns a simple prompt into something Atlas can act on.</span>
+                    </span>
+                  </label>
+                  <label class="design-option flex min-h-11 cursor-pointer items-start gap-3 rounded-card border border-line bg-canvas-elevated/50 p-5 has-[:checked]:border-line-strong has-[:checked]:bg-canvas-elevated">
+                    <input type="radio" name="brief-skill" value="none" class="mt-1 size-4 shrink-0" />
+                    <span>
+                      <span class="block font-semibold tracking-tight text-ink">No brief skill</span>
+                      <span class="mt-1 block text-ink-muted">This project already turns a prompt into something Atlas can act on.</span>
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
+
               <button
                 id="download-folder"
                 type="button"
@@ -189,12 +209,14 @@ const viewSkills = firstSkill?.href ?? '/';
   const costs = document.querySelector<HTMLElement>('#copy-limits');
   const intro = document.querySelector<HTMLElement>('#intro');
 
+  const briefFieldset = document.querySelector<HTMLElement>('#brief-skill');
   const keepDocs = document.querySelector<HTMLElement>('#keep-docs');
   const keepCheck = document.querySelector<HTMLInputElement>('#keep-docs-check');
   const chooseMessage = 'Choose a design system.';
+  const chooseBriefMessage = 'Choose a brief skill.';
   const confirmMessage = 'Confirm this project already has design-system documentation.';
 
-  if (button && status && fieldset && notice && downloaded && placement && costs && intro && keepDocs && keepCheck) {
+  if (button && status && fieldset && briefFieldset && notice && downloaded && placement && costs && intro && keepDocs && keepCheck) {
     let busy = false;
 
     fieldset.addEventListener('pointerdown', () => {
@@ -203,9 +225,15 @@ const viewSkills = firstSkill?.href ?? '/';
     fieldset.addEventListener('keydown', () => {
       delete fieldset.dataset.pointer;
     });
+    briefFieldset.addEventListener('pointerdown', () => {
+      briefFieldset.dataset.pointer = 'true';
+    });
+    briefFieldset.addEventListener('keydown', () => {
+      delete briefFieldset.dataset.pointer;
+    });
 
     fieldset.addEventListener('change', () => {
-      if (status.textContent === chooseMessage || status.textContent === confirmMessage) status.textContent = '';
+      if (status.textContent === chooseMessage || status.textContent === chooseBriefMessage || status.textContent === confirmMessage) status.textContent = '';
       const selected = fieldset.querySelector<HTMLInputElement>('input[name="design-system"]:checked');
       const skipDesign = selected?.value === 'none';
       keepDocs.hidden = !skipDesign;
@@ -214,6 +242,10 @@ const viewSkills = firstSkill?.href ?? '/';
 
     keepCheck.addEventListener('change', () => {
       if (keepCheck.checked && status.textContent === confirmMessage) status.textContent = '';
+    });
+
+    briefFieldset.addEventListener('change', () => {
+      if (status.textContent === chooseBriefMessage) status.textContent = '';
     });
 
     button.addEventListener('click', async () => {
@@ -229,6 +261,12 @@ const viewSkills = firstSkill?.href ?? '/';
         keepCheck.focus();
         return;
       }
+      const brief = briefFieldset.querySelector<HTMLInputElement>('input[name="brief-skill"]:checked');
+      if (!brief) {
+        status.textContent = chooseBriefMessage;
+        briefFieldset.querySelector<HTMLInputElement>('input[name="brief-skill"]')?.focus();
+        return;
+      }
 
       busy = true;
       button.setAttribute('aria-busy', 'true');
@@ -238,7 +276,7 @@ const viewSkills = firstSkill?.href ?? '/';
       }, 300);
 
       try {
-        const response = await fetch(`/download/zip/${selected.value}`);
+        const response = await fetch(`/download/zip/${selected.value}/${brief.value}`);
         if (!response.ok) throw new Error('download failed');
         const blob = await response.blob();
         const url = URL.createObjectURL(blob);
@@ -277,17 +315,20 @@ const viewSkills = firstSkill?.href ?? '/';
 
 <style>
   /* A pointer press was drawing the accent outline and dropping it on release. Keyboard focus still rings the choice. */
-  #design-system input {
+  #design-system input,
+  #brief-skill input {
     outline: none;
   }
 
   #design-system[data-pointer] .design-option:focus-within,
-  #design-system[data-pointer] .keep-docs:focus-within {
+  #design-system[data-pointer] .keep-docs:focus-within,
+  #brief-skill[data-pointer] .design-option:focus-within {
     outline: none;
   }
 
   #design-system:not([data-pointer]) .design-option:has(:focus-visible),
-  #design-system:not([data-pointer]) .keep-docs:has(:focus-visible) {
+  #design-system:not([data-pointer]) .keep-docs:has(:focus-visible),
+  #brief-skill:not([data-pointer]) .design-option:has(:focus-visible) {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
   }
