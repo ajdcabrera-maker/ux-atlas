@@ -4,6 +4,12 @@ Under that date, use Added, Changed, or Fixed.
 Write what a person using Atlas can do now.
 -->
 
+## 27 September 2026
+
+### Changed
+
+- The documentation site and author tooling live in a separate repo ([ux-atlas-site](https://github.com/ajdcabrera-maker/ux-atlas-site)). This package is the skills library. Install and the project-folder download are unchanged.
+
 ## 26 September 2026
 
 ### Added

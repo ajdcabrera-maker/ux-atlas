@@ -17,12 +17,9 @@
     "./skills/*": "./skills/*"
   },
   "scripts": {
-    "dev": "npm --prefix site run dev",
-    "build": "npm --prefix site run build",
-    "preview": "npm --prefix site run preview",
-    "deploy": "npm --prefix site run deploy",
     "lint": "eslint .",
-    "postinstall": "node scripts/init.mjs"
+    "postinstall": "node scripts/init.mjs",
+    "test": "node --test scripts/init.test.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
