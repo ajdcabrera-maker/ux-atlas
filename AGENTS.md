@@ -18,7 +18,9 @@ Do not deploy uncommitted work, or a commit that exists only on this machine.
 
 Public skills live in `skills/**/SKILL.md`. Author-only skills live in `author/**/SKILL.md`. They are for building UX Atlas in this repo. They are not in the install package, the project download, or the public site. Each file’s `name` and `description` are the disclosure layer. The body is the rule set.
 
-Read only the name and description. When a description matches the request, read that body and follow it. If several match, read the most specific one. Do not read every body up front.
+Read only the name and description. When a description matches the request, read that body and follow it. If several match, read the most specific one. Do not read every body up front. Do not preload skills “to be safe.”
+
+Keep the path small. A copy-only, flow-only, IA-only, or evidence-only ask does not start the design pipeline.
 
 If a `DESIGN.md` is at the project root, follow it for terminology, casing, and a length limit. Follow it for those three. Do not replace that file when UX Atlas updates.
 

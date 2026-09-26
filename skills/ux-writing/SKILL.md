@@ -1,6 +1,6 @@
 ---
 name: ux-writing
-description: Write, rewrite, name, or audit interface copy. Covers voice and tone, buttons, labels, headings, empty states, errors, success, hints, destructive confirmation, and copy review across screens. Use when the prompt is content generation, asks for words, asks how the product should sound, or asks for a copy audit. During a design pipeline, apply only in Structure for the action and state names, and in Surface for voice then strings. A copy-only request does not start the design pipeline. Do not invent a playful voice for sport. Do not generate marketing assets, logos, or campaigns.
+description: Write, rewrite, name, or audit interface copy. Covers voice and tone, buttons, labels, headings, empty states, errors, success, hints, destructive confirmation, and copy review across screens. Use when the prompt asks for interface copy or content, asks for words, asks how the product should sound, or asks for a copy audit. During a design pipeline, apply only in Structure for the action and state names, and in Surface for voice then strings. A copy-only request does not start the design pipeline. Do not invent a playful voice for sport. Do not generate marketing assets, logos, or campaigns.
 metadata:
   updated: "2026-09-26"
   updatedBy: Aaron Cabrera
@@ -59,29 +59,16 @@ A control says what will happen, in the partner's words.
 ## States
 
 ### Empty
-Say what belongs here and the action that fills it.
-- "No projects yet." Then the action: "Create a project to start."
-- Do not leave an empty state as a title with no next step.
+Say what belongs here and the action that fills it. Example: "No projects yet." then "Create a project to start." Do not leave a title with no next step.
 
 ### Error
-Say what failed and how to fix it.
-- Name the field or the action. "Enter a date after today."
-- Do not blame the person. "Wrong password", not "You entered the wrong password."
-- Do not show a stack trace, a schema name, or a raw error code.
-- Do not joke. People meet errors under stress.
-- Say "sorry" only when the product failed outright, then give the next step. Do not apologize for a validation miss.
-- A login failure stays vague: "Invalid email or password." Do not reveal which part matched.
-- If a correction is known and it would not reveal a secret, offer it.
-- Keep what the person already typed. The constitution owns that behavior. The words must still make sense beside the preserved input.
+Say what failed and how to fix it. Name the field or action. Do not blame the person. Do not joke. Say "sorry" only when the product failed outright, then the next step. If a safe correction is known, offer it. The constitution owns stack traces, login vagueness, and keeping typed input — words must still make sense beside that behavior.
 
 ### Success
-One line, and it states the outcome. "Changes saved."
-- Do not add a thank-you paragraph.
+One line that states the outcome. Example: "Changes saved." No thank-you paragraph.
 
 ### Destructive
-The control names the object. The confirmation says what will be lost and that it cannot be undone, when that is true.
-- "Delete project" and "This project will be removed. You cannot undo this."
-- The constitution owns the interaction for an irreversible delete, including typing the name. Write the words for that step. Do not replace it with a softer label.
+The control names the object. The confirmation says what will be lost and that it cannot be undone, when that is true. Example: "Delete project" / "This project will be removed. You cannot undo this." The constitution owns the irreversible-delete interaction; write the words for that step, do not soften the label.
 
 ## Copy audit
 
@@ -114,4 +101,4 @@ Surface, or a copy-only request: each string labeled with its job. Include only 
 
 If a length limit cuts the string, keep the verb and the object. Cut the rest.
 
-When this skill is used on its own, stop after the guide and/or the strings. Do not change the product. The constitution asks before any change, using its Choice block. During the design pipeline, hand the strings to that stage and do not ask to implement here.
+When this skill is used on its own, stop after the guide and/or the strings. Do not change the product. The constitution asks before any change. During the design pipeline, hand the strings to that stage and do not ask to implement here.

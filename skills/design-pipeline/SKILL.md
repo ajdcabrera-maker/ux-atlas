@@ -1,6 +1,6 @@
 ---
 name: design-pipeline
-description: Turn a design request into a sequence of decisions with the person who asked. Use when asked to design, redesign, critique, discuss, plan, or change a screen, flow, feature, or product, and when a prompt jumps straight to a layout. Do not answer that request with an unstaged plan. Covers framing, requirements, product class, evidence, prototyping, and high fidelity. Guided mode runs one stage at a time and waits for a decision. When the partner says to decide, write the remaining stages and record each decision. Offer Accept and Correct as a choice. After the record, ask whether to implement. Do not implement before they choose. There is no exemption. Run this before any component skill.
+description: Turn a design request into a sequence of decisions with the person who asked. Use when asked to design, redesign, critique, discuss, plan, or change a screen, flow, feature, or product, and when a prompt jumps straight to a layout. Do not answer that request with an unstaged plan. Do not use for copy-only, flow-only, IA-only, or evidence-only asks. Covers framing, requirements, product class, evidence, prototyping, and high fidelity. Guided mode runs one stage at a time and waits for a decision. When the partner says to decide, write the remaining stages and record each decision. Offer Accept and Correct as a choice. After the record, ask whether to implement. Do not implement before they choose. There is no exemption. Run this before any component skill.
 metadata:
   updated: "2026-09-26"
   updatedBy: Aaron Cabrera
@@ -39,13 +39,7 @@ Ask one question. Ask only what you cannot responsibly assume. State every assum
 
 ## The choice
 
-Use the constitution's choice rules. Write the whole stage in the message first. Then present the choice once — host picker or Choice block, never both.
-
-When the only decision is accept or correct, the options are these.
-- Accept the stage. It opens the next stage on the next turn.
-- Correct this stage. It stays on that stage.
-
-If they correct the stage, or the choice does not accept it, say "Stay on this stage. Say what to change." Do not open the next stage.
+Use the constitution's choice rules after the stage text. Accept the stage / Correct this stage. If they correct, say "Stay on this stage. Say what to change."
 
 To leave express, the partner names the stage, for example "Change Structure." Answer "Express ended. Structure is open." Express stays off, and that stage waits. Express cannot be stopped while a response is still being written.
 
@@ -130,4 +124,4 @@ Propose a test with end users before calling a new or critical flow done.
 
 When the partner asks for the record, or accepts Surface, give them the problem, the product class, the scope, the decisions, the flow, the interface, the open questions, and what was not tested.
 
-Then ask whether to implement that record. Guided and express both ask. Use the constitution's choice rules. The options are Implement the record, and Leave the record. Do not implement before they choose. The size of the change does not matter. A sentence that chooses the approach is not a choice to implement. There is no exemption.
+Then ask whether to implement that record. Use the constitution's choice rules. The options are Implement the record, and Leave the record. Do not implement before they choose. A sentence that chooses the approach is not a choice to implement.

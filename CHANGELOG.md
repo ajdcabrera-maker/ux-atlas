@@ -23,6 +23,8 @@ Write what a person using Atlas can do now.
 - In the design pipeline, Learn and Benchmark are one Evidence move that calls the evidence skill.
 - In the design pipeline, Define sets a product class when it changes what Structure prioritizes. If the class is obvious, the agent records it without stopping to ask.
 - UX Writing settles voice and tone (default plain and direct when unknown), writes interface strings, and can audit copy across a project. It does not invent a brand voice or generate marketing assets.
+- Small asks stay small. The agent reads only matching skill descriptions, does not preload every skill, and does not start the design pipeline for a copy-only, flow-only, IA-only, or evidence-only request.
+- Choice and Confirmation stay in the constitution. Other skills point there instead of restating the full stop.
 
 ## 24 September 2026
 

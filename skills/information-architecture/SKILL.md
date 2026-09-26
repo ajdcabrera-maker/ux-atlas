@@ -53,4 +53,4 @@ Structure-only, or the pipeline's Structure stage:
 
 Name the arrangement you rejected in one line. Do not draw the screen.
 
-When this skill is used on its own, stop after the map. Do not change the product. The constitution asks before any change, using its Choice block. During the design pipeline, hand the map to that stage and do not ask to implement here.
+When this skill is used on its own, stop after the map. Do not change the product. The constitution asks before any change. During the design pipeline, hand the map to that stage and do not ask to implement here.

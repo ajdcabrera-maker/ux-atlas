@@ -26,6 +26,18 @@ The partner explores where a skill sits in Atlas and which gap to fill. That con
 
 When the partner asks to improve, update, or fix **this** workflow skill (`author/skill-development`), edit that file directly. Do not open Research, Draft, Generate, Discoverability, or Smoke for this file. Running the workflow to change the workflow is a race and is forbidden.
 
+## Token efficiency
+
+Every Draft must satisfy these. Details and fixtures live in `author/token-efficiency.md`.
+
+1. **Runtime body.** `SKILL.md` holds executable rules only. No essay fat, reading lists, or example galleries that do not change behavior. The site renders the same file — do not invent a second teaching source that can drift.
+2. **Hard disclosure.** The description is specific enough that fixtures A/B in `author/token-efficiency.md` still pass. State when the skill must not run. Prefer the most specific skill; do not preload bodies.
+3. **Choice dedupe.** Choice and Confirmation live in the constitution. This skill points there in one line. Do not restate the Choice block or host-picker protocol.
+4. **Skill diet.** Prefer extend-over-add (Draft item Unify or new). A new file only when disclosure cannot cover the ask without false matches.
+5. **Measure.** After Generate, Smoke uses fixtures A/B/C in `author/token-efficiency.md` when disclosure or turn-path could change.
+
+Guided remains the default design path. Do not pitch Express as faster or cheaper in skill text.
+
 ## Trigger
 
 Start this skill when all of the following are true.
@@ -79,8 +91,9 @@ In the same turn, do all of the following.
 1. **Rationale.** How the draft was shaped from the canon and from Atlas.
 2. **Trigger design.** The exact description phrases. When the skill runs. When it must not run. Why that boundary.
 3. **Tandem.** How it collaborates with existing skills. What it reads, what it hands off, which pipeline stage it belongs to if any.
-4. **Unify or new.** Whether to improve an existing skill instead of adding a file. Prefer unify when overlap is high. Say which file would change.
-5. **Temp markdown.** Write the full proposed `SKILL.md` to a temporary file under `_drafts/` so the partner can Preview it. Do not rely on a chat paste as the review surface.
+4. **Unify or new.** Prefer improve an existing skill over add. A new skill only when no existing description can cover the ask without false matches. Say which file would change, or why a new file is required.
+5. **Token check.** Confirm against Token efficiency above and `author/token-efficiency.md`: runtime-only body, precise description (no false match on a rename-button ask), constitution for Choice, unify-or-new already answered. Say pass or what still fails.
+6. **Temp markdown.** Write the full proposed `SKILL.md` to a temporary file under `_drafts/` so the partner can Preview it. Do not rely on a chat paste as the review surface.
 
 Wait for Accept on the draft. Correct keeps Draft open.
 
@@ -132,12 +145,15 @@ Use the pilot prompt until a stronger smoke skill or agent exists:
 
 > Design how an existing customer cancels a paid subscription in our web app. They should understand what they lose, confirm, and get a clear next step if they change their mind. Don’t jump straight to visual polish — work through it properly.
 
+When the change could affect disclosure, also check fixtures A/B/C in `author/token-efficiency.md`. A rename-button ask must not load the design pipeline.
+
 Pass when all of these hold.
 
 - The intended skill is selected when the prompt should hit it (alone or inside the pipeline stage that owns it)
 - Stops use one Choice (picker or block, never both)
 - The skill does not start the design pipeline when its description says it must not
 - No product change before the constitution's implement Choice
+- Token fixtures A/B/C still pass when this skill is in the tree
 
 Fail returns to Draft, or to Research when a canon gap caused the miss.
 
@@ -151,4 +167,4 @@ Deploy is a separate explicit request. Never deploy as part of this skill. There
 
 ## Record
 
-When the partner asks, give them the skill name, new vs unify, author-only vs public, sources, trigger phrases, tandem decisions, discoverability result, smoke result, and open questions.
+When the partner asks, give them the skill name, new vs unify, author-only vs public, sources, trigger phrases, tandem decisions, token-efficiency check, discoverability result, smoke result, and open questions.
