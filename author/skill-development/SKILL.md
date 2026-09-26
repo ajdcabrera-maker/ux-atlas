@@ -1,6 +1,6 @@
 ---
 name: skill-development
-description: Run the Atlas skill development workflow after the partner has chosen which skill to add or improve. Use when they say to generate that skill, run skill development, or start the workflow for a named skill. Do not run while they are only exploring which gap to fill. Covers research, draft, generate, discoverability, and smoke. Phases are ordinal. Forward skips are forbidden. Backward jumps are allowed and clear later accepts. Do not deploy. After smoke, ask whether to ship. Shipping means the real skill files are ready; deploy stays a separate explicit choice. Author-only internal workflow. Never ship this skill in the npm package, the project download, the public site, the nav, or the skill catalog. The public must not consume it.
+description: Run the Atlas skill development workflow after the partner has chosen which skill to add or improve. Use when they say to generate, improve, update, extend, or fold into a skill; run skill development; start the workflow for a named skill; or accept a choice that would add or edit a skill file. Covers research, draft, generate, discoverability, and smoke for public skills under skills/ and for other author skills under author/ — not for editing this workflow skill itself. Do not run while they are only exploring which gap to fill. Phases are ordinal. Forward skips are forbidden. Backward jumps are allowed and clear later accepts. Do not deploy. After smoke, ask whether to ship. Shipping means the real skill files are ready; deploy stays a separate explicit choice. Author-only internal workflow. Never ship this skill in the npm package, the project download, the public site, the nav, or the skill catalog. The public must not consume it.
 metadata:
   updated: "2026-09-26"
   updatedBy: Aaron Cabrera
@@ -22,14 +22,28 @@ Discoverability for **this** skill means proving the negatives above. Discoverab
 
 The partner explores where a skill sits in Atlas and which gap to fill. That conversation does not run this skill. Name, section, and trigger words may be proposed there, but the workflow has not started.
 
+## Do not run this skill on itself
+
+When the partner asks to improve, update, or fix **this** workflow skill (`author/skill-development`), edit that file directly. Do not open Research, Draft, Generate, Discoverability, or Smoke for this file. Running the workflow to change the workflow is a race and is forbidden.
+
 ## Trigger
 
-Start this skill only when both are true.
+Start this skill when all of the following are true.
 
-1. The partner has decided which skill to add, or which existing skill to improve.
-2. They give a go signal, for example "generate that skill", "run skill development for user-flow", or "start the workflow for that".
+1. The partner has decided which skill to add, or which existing skill to improve — other than this workflow skill.
+2. They give a go signal. Go signals include, and are not limited to:
+   - "generate that skill", "run skill development", "start the workflow for …"
+   - "improve …", "update …", "extend …", "fold into …", "change the pipeline", "add to Define"
+   - Accepting a Choice option whose outcome is adding or editing a skill file under `skills/` or `author/` (except this workflow skill)
 
 Kickoff is the trigger. It is not a phase inside this skill.
+
+### Hard rules
+
+- Any add or edit under `skills/**/SKILL.md` runs this skill first. There is no small-patch exemption.
+- Any add or edit under `author/**/SKILL.md` **except** `author/skill-development/SKILL.md` runs this skill first.
+- Do not write those skill files in kickoff, in ordinary advice, or as a "quick fold." Open this skill at Research (or the correct phase on a return) and name the target skill in that turn.
+- When you present a Choice whose option would change a skill file, that option must say to run skill development for the named skill. Do not offer "just edit the file" or "fold in now — no workflow" as a path around this skill.
 
 ## How to move
 
@@ -83,8 +97,9 @@ For a **public** Atlas skill:
 - New skill: `skills/<name>/SKILL.md`
 - Improve existing: edit that skill's `SKILL.md`
 - Register or update `site/src/lib/skill-catalog.ts` when the site must list it
+- Catalog row before or with the `SKILL.md` write so the site loader does not fail mid-reload
 
-For **this** author workflow skill: `author/skill-development/SKILL.md` only. No catalog row. No package entry.
+For **other** author skills: `author/<name>/SKILL.md` only. No catalog row. No package entry.
 
 Do not invent a one-off pattern outside Atlas skill conventions. Match frontmatter, disclosure description, and body tone to sibling skills.
 
@@ -97,7 +112,7 @@ Do not invent a one-off pattern outside Atlas skill conventions. Match frontmatt
 - Package ships `skills/`
 - Project download zip includes `skills/<name>/SKILL.md`
 
-**This author skill.** Confirm it is absent from every visitor surface.
+**Author skill under development (not this workflow file).** Confirm it is absent from every visitor surface.
 
 - Not under `skills/` or `optional/`
 - Not in `skill-catalog.ts`

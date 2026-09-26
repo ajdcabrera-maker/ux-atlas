@@ -1,6 +1,6 @@
 ---
 name: design-pipeline
-description: Turn a design request into a sequence of decisions with the person who asked. Use when asked to design, redesign, critique, discuss, plan, or change a screen, flow, feature, or product, and when a prompt jumps straight to a layout. Do not answer that request with an unstaged plan. Covers framing, requirements, evidence, prototyping, and high fidelity. Guided mode runs one stage at a time and waits for a decision. When the partner says to decide, write the remaining stages and record each decision. Offer Accept and Correct as a choice. After the record, ask whether to implement. Do not implement before they choose. There is no exemption. Run this before any component skill.
+description: Turn a design request into a sequence of decisions with the person who asked. Use when asked to design, redesign, critique, discuss, plan, or change a screen, flow, feature, or product, and when a prompt jumps straight to a layout. Do not answer that request with an unstaged plan. Covers framing, requirements, product class, evidence, prototyping, and high fidelity. Guided mode runs one stage at a time and waits for a decision. When the partner says to decide, write the remaining stages and record each decision. Offer Accept and Correct as a choice. After the record, ask whether to implement. Do not implement before they choose. There is no exemption. Run this before any component skill.
 metadata:
   updated: "2026-09-26"
   updatedBy: Aaron Cabrera
@@ -63,6 +63,9 @@ Write the problem and the outcome in one short statement.
 - Name who it is for and what changes for them when this works.
 - Say if there is no user need. Stopping is a valid outcome.
 - Do not add features in order to make the problem feel larger.
+- Set the product class when it affects what Structure must prioritize. The class is what kind of product this is for content and priority — for example booking-led, showcase-led (portfolio), task-led (work tool), or reading-led. Content structure follows the class. Do not invent a brand voice, tone system, or marketing assets.
+- If the class is obvious from the prompt, record it as Assumed or Decided and do not stop to ask. The partner does not see a product-class layer when the prompt already settles it.
+- If the class is unknown, or two classes would change what leads in Structure, ask one plain question. Only then does the partner see this layer.
 - Wait for the partner to accept or correct the statement.
 
 ## 3. Scope
@@ -76,6 +79,7 @@ List what is in, what is out, and what is later.
 ## 4. Structure
 
 Describe one flow: the steps, the primary action, and the empty, error, and exit states.
+- Apply the product class from Define before or with the path and the map. What leads on the page or in the flow must match what that class is selling or proving (for example book first, showcase first, or finish the task first).
 - Apply the user-flow skill for the job, the main path, the extensions, and the exit.
 - Apply the information architecture skill for the pages, the steps, the sections, and the navigation.
 - Name the alternative you rejected and why.
@@ -87,6 +91,7 @@ Describe one flow: the steps, the primary action, and the empty, error, and exit
 
 Judge the accepted flow against the brief and the constitution.
 - Say what passed and what failed. Name the constitution rule when one fails.
+- If the structure fights the product class from Define, it fails. Return to Define or Structure.
 - If it fails, return to Define or Structure and say which.
 - A critique with the partner is this stage. It is not a test with end users.
 - Do not offer a restyled screen as the fix.
@@ -95,6 +100,7 @@ Judge the accepted flow against the brief and the constitution.
 
 Specify the interface only after the partner accepts the structure.
 - Apply the constitution. Apply a component skill only for an element the screen actually needs.
+- Apply UX Writing under the product class from Define. Density and formality may follow the class. Do not invent a brand voice. Do not generate marketing assets. UX Writing still owns the strings.
 - Specify the states that element can be in: default, hover, focus, loading, success, and error, where those exist.
 - Use the product's existing visual language. Do not invent a one-off system.
 - Leave unresolved questions listed. Do not hide them in the mock.
@@ -122,6 +128,6 @@ Propose a test with end users before calling a new or critical flow done.
 
 ## Record
 
-When the partner asks for the record, or accepts Surface, give them the problem, the scope, the decisions, the flow, the interface, the open questions, and what was not tested.
+When the partner asks for the record, or accepts Surface, give them the problem, the product class, the scope, the decisions, the flow, the interface, the open questions, and what was not tested.
 
 Then ask whether to implement that record. Guided and express both ask. Use the constitution's choice rules. The options are Implement the record, and Leave the record. Do not implement before they choose. The size of the change does not matter. A sentence that chooses the approach is not a choice to implement. There is no exemption.

@@ -21,6 +21,7 @@ Write what a person using Atlas can do now.
 - When the agent needs a yes-or-no style decision, it presents one Choice: a host picker when the host has one, or a typed Choice block when it does not — never both at once.
 - In the design pipeline, Structure runs user flow and then information architecture.
 - In the design pipeline, Learn and Benchmark are one Evidence move that calls the evidence skill.
+- In the design pipeline, Define sets a product class when it changes what Structure prioritizes. If the class is obvious, the agent records it without stopping to ask.
 
 ## 24 September 2026
 
