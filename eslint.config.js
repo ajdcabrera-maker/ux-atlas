@@ -4,7 +4,7 @@ import globals from "globals";
 
 export default defineConfig([
   {
-    ignores: ["**/dist/**", "**/.astro/**"],
+    ignores: ["**/dist/**", "**/node_modules/**"],
   },
   {
     files: ["**/*.js", "**/*.mjs"],

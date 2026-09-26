@@ -1,8 +1,5 @@
 node_modules/
 dist/
-.astro/
-.wrangler/
-_drafts/
 
 npm-debug.log*
 yarn-debug.log*
