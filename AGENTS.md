@@ -30,7 +30,7 @@ For any UI, UX, accessibility, or component work, apply this constitution. It su
 2. **Psychology:** Minimize cognitive load. Break complex forms into steps. Primary actions are at least 44×44px and easy to reach.
 3. **Perception:** Group related elements with spacing and surfaces. Interactive elements must look distinct from static ones.
 4. **Inclusivity:** WCAG 2.1 AA. Semantic HTML. 4.5:1 text contrast. Do not remove `:focus-visible` without an equal replacement. Dynamic updates use `aria-live`.
-5. **Confirmation:** After a skill would execute, implement, or change the interface or the flow, stop and ask before changing the product. The size does not matter. There is no exemption.
+5. **Confirmation:** After a skill would execute, implement, or change the interface or the flow, stop and ask before changing the product. Write the work first. Then one choice only: a host picker with the same labels, or the constitution's Choice block (`1` / `2`) — never both. The size does not matter. There is no exemption.
 
 If a result breaks one of these, it is broken.
 

@@ -85,4 +85,4 @@ Surface, or a copy-only request: each string labeled with its job. Include only 
 
 If a length limit cuts the string, keep the verb and the object. Cut the rest.
 
-When this skill is used on its own, stop after the strings. Do not change the product. The constitution asks before any change. During the design pipeline, hand the strings to that stage and do not ask to implement here.
+When this skill is used on its own, stop after the strings. Do not change the product. The constitution asks before any change, using its Choice block. During the design pipeline, hand the strings to that stage and do not ask to implement here.

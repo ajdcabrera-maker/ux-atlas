@@ -1,6 +1,6 @@
 ---
 name: ux-constitution
-description: Foundational UX rules for interaction, psychology, perception, and accessibility. Use for any interface work, and when no narrower skill covers the task. Covers feedback, errors, labels, exits, targets, contrast, focus, and semantic HTML. After a skill would execute, implement, or change the interface or the flow, stop and ask before changing the product. There is no exemption.
+description: Foundational UX rules for interaction, psychology, perception, and accessibility. Use for any interface work, and when no narrower skill covers the task. Covers feedback, errors, labels, exits, targets, contrast, focus, and semantic HTML. After a skill would execute, implement, or change the interface or the flow, stop and ask before changing the product. Owns the Choice block every skill uses for an explicit partner stop. There is no exemption.
 metadata:
   updated: "2026-09-26"
   updatedBy: Aaron Cabrera
@@ -188,8 +188,33 @@ People complete simple shapes. Extra chrome is noise.
 
 ## 5. Confirmation
 
-This is the last step before a skill's outcome changes the product. It applies to every skill that would execute, implement, or change the interface or the flow.
+This is the last step before a skill's outcome changes the product. It also owns every stop that needs the partner to choose before the skill continues. It applies to every skill that would execute, implement, change the interface or the flow, or wait on an explicit partner decision.
 - Stop and ask the partner to confirm before changing the product.
 - Ask for a small change and for a large one.
 - Guided and express both ask. Deciding the approach is not a confirmation to implement.
 - Do not change the product before they choose. There is no exemption.
+
+### The choice
+
+Every skill that needs a partner decision uses this shape. Write the work in the message first. Then present the choice. The message is what the partner reads. The choice is how they answer. The work stays in the message. The choice does not replace it, and the message does not replace the choice.
+
+Do not present the choice before the work is written. Do not send the choice in a turn that has no work text. Do not end the turn with the work and free text alone.
+
+Use the option labels the calling skill defines. Keep those labels the same on every host. Present the choice in exactly one of these ways. Never both in the same turn.
+
+**Host picker.** When the host offers a picker for those options (for example `AskQuestion`), use it after the work text, with those same labels. Do not print the Choice block. Do not also ask them to type 1 or 2. One decision, one control.
+
+**Choice block.** When the picker is missing or fails, present the choice like this. Do not invent a third pattern. Do not replace this with free-form "please confirm" wording.
+
+```
+Choice
+1. <first option>
+2. <second option>
+Reply with 1 or 2. If the second option needs detail, say what to change.
+```
+
+Before changing the product, when no narrower skill names the options, use these.
+- Implement the change
+- Leave the change
+
+A reply of 1, the first option's label, or the picker's first option, accepts. A reply of 2, the second option's label, or the picker's second option, declines or corrects. Any other answer is typed. Treat it as continuing the current work, not as acceptance.

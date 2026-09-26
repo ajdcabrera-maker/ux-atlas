@@ -39,14 +39,11 @@ Ask one question. Ask only what you cannot responsibly assume. State every assum
 
 ## The choice
 
-Do both, in this order. Write the whole stage in the message first. Then present the clickable choice. The message is what the partner reads. The choice is how they answer. The stage stays in the message. The choice does not replace it, and the message does not replace the choice.
+Use the constitution's choice rules. Write the whole stage in the message first. Then present the choice once — host picker or Choice block, never both.
 
-Do not present the choice before the stage is written. Do not send the choice in a turn that has no stage text. Do not end the turn with the stage and free text alone.
-
-When the only decision is accept or correct, the choices are these.
+When the only decision is accept or correct, the options are these.
 - Accept the stage. It opens the next stage on the next turn.
 - Correct this stage. It stays on that stage.
-- Any other answer is typed. Treat that answer as continuing this stage.
 
 If they correct the stage, or the choice does not accept it, say "Stay on this stage. Say what to change." Do not open the next stage.
 
@@ -79,6 +76,7 @@ List what is in, what is out, and what is later.
 ## 4. Structure
 
 Describe one flow: the steps, the primary action, and the empty, error, and exit states.
+- Apply the user-flow skill for the job, the main path, the extensions, and the exit.
 - Apply the information architecture skill for the pages, the steps, the sections, and the navigation.
 - Name the alternative you rejected and why.
 - Stay at the level of structure. No visual style, no component anatomy.
@@ -132,4 +130,4 @@ Propose a test with end users before calling a new or critical flow done.
 
 When the partner asks for the record, or accepts Surface, give them the problem, the scope, the decisions, the flow, the interface, the open questions, and what was not tested.
 
-Then ask whether to implement that record. Guided and express both ask. The choices are Implement the record, and Leave the record. Do not implement before they choose. The size of the change does not matter. A sentence that chooses the approach is not a choice to implement. There is no exemption.
+Then ask whether to implement that record. Guided and express both ask. Use the constitution's choice rules. The options are Implement the record, and Leave the record. Do not implement before they choose. The size of the change does not matter. A sentence that chooses the approach is not a choice to implement. There is no exemption.

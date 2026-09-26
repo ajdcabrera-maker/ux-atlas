@@ -15,6 +15,11 @@ export const skillCatalog: Record<string, { title: string; section: string; orde
     section: 'content',
     order: 30,
   },
+  'user-flow': {
+    title: 'User flow',
+    section: 'structure',
+    order: 24,
+  },
   'information-architecture': {
     title: 'Information architecture',
     section: 'structure',
