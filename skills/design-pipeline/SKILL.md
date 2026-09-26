@@ -1,6 +1,6 @@
 ---
 name: design-pipeline
-description: Turn a design request into a sequence of decisions with the person who asked. Use when asked to design, redesign, critique, discuss, plan, or change a screen, flow, feature, or product, and when a prompt jumps straight to a layout. Do not answer that request with an unstaged plan. Covers framing, requirements, research, benchmarks, prototyping, and high fidelity. Guided mode runs one stage at a time and waits for a decision. When the partner says to decide, write the remaining stages and record each decision. Offer Accept and Correct as a choice. After the record, ask whether to implement. Do not implement before they choose. There is no exemption. Run this before any component skill.
+description: Turn a design request into a sequence of decisions with the person who asked. Use when asked to design, redesign, critique, discuss, plan, or change a screen, flow, feature, or product, and when a prompt jumps straight to a layout. Do not answer that request with an unstaged plan. Covers framing, requirements, evidence, prototyping, and high fidelity. Guided mode runs one stage at a time and waits for a decision. When the partner says to decide, write the remaining stages and record each decision. Offer Accept and Correct as a choice. After the record, ask whether to implement. Do not implement before they choose. There is no exemption. Run this before any component skill.
 metadata:
   updated: "2026-09-26"
   updatedBy: Aaron Cabrera
@@ -33,7 +33,7 @@ The stops are Frame, Define, Scope, Structure, Check, and Surface, in that order
 
 The waits under each stage are guided stops. In express, skip the wait. End a decision with "Decided:" and the decision. End an assumption with "Assumed:" and the assumption. A question only the partner knows stays a typed question in guided mode. In express it becomes an assumption. Do not turn it into Accept or Correct.
 
-Learn, Benchmark, Another direction, and Test are optional. Propose one only when its rule says to. Say why, what you will do, and what you need from the partner. If they skip it, record the assumption and continue. Do not run it in silence.
+Evidence, Another direction, and Test are optional. Propose one only when its rule says to. Say why, what you will do, and what you need from the partner. If they skip it, record the assumption and continue. Do not run it in silence.
 
 Ask one question. Ask only what you cannot responsibly assume. State every assumption you are keeping.
 
@@ -101,18 +101,12 @@ Specify the interface only after the partner accepts the structure.
 
 ## Optional moves
 
-### Learn
-Propose a look at evidence when the audience is unknown, Define changed the problem, or the cost of being wrong is high. High means money, health, safety, irreversible loss, or a market you do not know.
+### Evidence
+Propose grounding when the audience is unknown, Define changed the problem, the cost of being wrong is high, or a familiar job needs a look at what similar products do. High cost means money, health, safety, irreversible loss, or a market you do not know. Familiar jobs include sign-in, checkout, search, settings, and onboarding.
+- Apply the evidence skill. Do not invent quotes, counts, or findings.
 - Scale it to the one or two assumptions that would change the design.
-- Skip it when the partner already has evidence, or the change is a known pattern on a product you both know.
-- If end users are unavailable, say so. The partner may confirm an assumption. That confirmation is not a usability test.
-- Do not invent quotes, counts, or findings.
-
-### Benchmark
-Propose two or three existing products that do the same job, and what you would adopt, when the job is familiar. Familiar jobs include sign-in, checkout, search, settings, and onboarding.
-- Skip it when nothing comparable exists, or the change sits inside a pattern the partner already accepted.
-- Adopt the familiar pattern unless a departure is clearly better. Say what you are copying and what you are not.
-- Wait only if you are proposing to break the convention.
+- Skip it when the partner already has enough evidence for this decision, or the change sits inside a pattern they already accepted.
+- If they cannot provide answers or files, record the gap and the residual risk. Partner Accept of an assumption is not a usability test.
 
 ### Another direction
 Propose a second structure when Define changed the problem, or more than one structure could satisfy the scope.

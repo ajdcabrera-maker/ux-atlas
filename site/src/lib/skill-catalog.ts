@@ -5,6 +5,11 @@ export const skillCatalog: Record<string, { title: string; section: string; orde
     section: 'foundations',
     order: 10,
   },
+  'evidence': {
+    title: 'Evidence',
+    section: 'foundations',
+    order: 15,
+  },
   'design-pipeline': {
     title: 'The Design Pipeline',
     section: 'design-ops',
