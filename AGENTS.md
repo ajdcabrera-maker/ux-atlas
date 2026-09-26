@@ -16,7 +16,7 @@ Do not deploy uncommitted work, or a commit that exists only on this machine.
 
 ## Skill selection
 
-Skills live in `skills/**/SKILL.md`. Each file’s `name` and `description` are the disclosure layer. The body is the rule set.
+Public skills live in `skills/**/SKILL.md`. Author-only skills live in `author/**/SKILL.md`. They are for building UX Atlas in this repo. They are not in the install package, the project download, or the public site. Each file’s `name` and `description` are the disclosure layer. The body is the rule set.
 
 Read only the name and description. When a description matches the request, read that body and follow it. If several match, read the most specific one. Do not read every body up front.
 
