@@ -15,6 +15,11 @@ export const skillCatalog: Record<string, { title: string; section: string; orde
     section: 'content',
     order: 30,
   },
+  'information-architecture': {
+    title: 'Information architecture',
+    section: 'structure',
+    order: 25,
+  },
 };
 
 export function skillMeta(name: string) {

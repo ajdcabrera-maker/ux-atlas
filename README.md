@@ -29,10 +29,13 @@ npm run dev
 npm run build
 ```
 
-Deploy only after the change is on GitHub `main`. The site renders this repo, and the project-folder download is built from it. A visitor has to get the same files from GitHub that the live site describes.
+When the request is to deploy, run this whole workflow. The site renders this repo, and the project-folder download is built from it. A visitor has to get the same files from GitHub that the live site describes.
 
-1. Commit the change.
-2. Push `main` to GitHub (`origin`, https://github.com/ajdcabrera-maker/ux-atlas.git).
-3. From a clean `main` that matches `origin/main`, run `npm run deploy`.
+1. Run `npm run lint`.
+2. Run `npm run build`.
+3. Check `git status`. If lint, the build, or the work already agreed produced a diff, include it. Do not stop to ask which files to keep.
+4. Write down what the commit contains, and why, before deploying.
+5. `git add` the change, commit it, and push `main` to GitHub (`origin`, https://github.com/ajdcabrera-maker/ux-atlas.git).
+6. From a clean `main` that matches `origin/main`, run `npm run deploy`.
 
 Do not deploy uncommitted work, or a commit that exists only on this machine.

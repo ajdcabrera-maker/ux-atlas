@@ -2,7 +2,7 @@
 name: design-pipeline
 description: Turn a design request into a sequence of decisions with the person who asked. Use when asked to design, redesign, critique, or add a screen, flow, feature, or product, and when a prompt jumps straight to a layout. Covers framing, requirements, research, benchmarks, prototyping, and high fidelity. Guided mode runs one stage at a time and waits for a decision. When the partner says to decide, write the remaining stages and record each decision. Offer Accept and Correct as a choice. Run this before any component skill.
 metadata:
-  updated: "2026-09-24"
+  updated: "2026-09-26"
   updatedBy: Aaron Cabrera
 ---
 
@@ -77,6 +77,7 @@ List what is in, what is out, and what is later.
 ## 4. Structure
 
 Describe one flow: the steps, the primary action, and the empty, error, and exit states.
+- Apply the information architecture skill for the pages, the steps, the sections, and the navigation.
 - Name the alternative you rejected and why.
 - Stay at the level of structure. No visual style, no component anatomy.
 - A component skill does not apply here.

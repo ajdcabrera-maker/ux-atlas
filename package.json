@@ -20,6 +20,7 @@
     "build": "npm --prefix site run build",
     "preview": "npm --prefix site run preview",
     "deploy": "npm --prefix site run deploy",
+    "lint": "eslint .",
     "postinstall": "node scripts/init.mjs"
   },
   "dependencies": {
@@ -27,5 +28,10 @@
   },
   "allowScripts": {
     "github:ajdcabrera-maker/ux-atlas#3f596600178c99b256fa1d60f450b21dff2e2eb0": true
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.11.0",
+    "globals": "^17.12.0"
   }
 }
